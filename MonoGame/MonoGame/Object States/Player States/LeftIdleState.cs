@@ -7,9 +7,12 @@ namespace MonoGame
     class LeftIdleState : IPlayerState
     {
         Player player;
+        public IAnimatedSprite Sprite { get; set; }
 
         public LeftIdleState(Player currentPlayer)
         {
+            ISpriteFactory factory = new SpriteFactory();
+            Sprite = factory.builder(SpriteFactory.sprites.leftIdlePlayer);
             player = currentPlayer;
         }
 
@@ -35,12 +38,12 @@ namespace MonoGame
 
         public void Draw(SpriteBatch spriteBatch, Vector2 location, Color color)
         {
-            throw new NotImplementedException();
+            Sprite.Draw(spriteBatch, location, color);
         }
 
         public void Update(GameTime gameTime)
         {
-            throw new NotImplementedException();
+            Sprite.Update(gameTime);
         }
     }
 }

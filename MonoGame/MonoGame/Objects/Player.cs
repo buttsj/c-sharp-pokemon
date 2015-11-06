@@ -3,11 +3,11 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace MonoGame
 {
-    public class Player : IPlayerState
+    public class Player
     {
 
         public IPlayerState state { get; set; }
-        public Vector2 position { get; set; }
+        public Vector2 position;
         public bool isLeft = false;
         public bool isRight = false;
         public bool isUp = false;
@@ -26,6 +26,8 @@ namespace MonoGame
             isLeft = false;
             isRight = false;
             isUp = false;
+            state.Down();
+            position.Y += 1;
     }
 
         public void Left()
@@ -34,6 +36,8 @@ namespace MonoGame
             isLeft = true;
             isRight = false;
             isUp = false;
+            state.Left();
+            position.X -= 1;
         }
 
         public void Right()
@@ -42,6 +46,8 @@ namespace MonoGame
             isLeft = false;
             isRight = true;
             isUp = false;
+            state.Right();
+            position.X += 1;
         }
 
         public void Up()
@@ -50,16 +56,18 @@ namespace MonoGame
             isLeft = false;
             isRight = false;
             isUp = true;
+            state.Up();
+            position.Y -= 1;
         }
 
-        public void Draw(SpriteBatch spriteBatch, Vector2 location, Color color)
+        public void Draw(SpriteBatch spriteBatch)
         {
-
+            state.Draw(spriteBatch, position, Color.White);
         }
 
         public void Update(GameTime gameTime)
         {
-
+            state.Update(gameTime);
         }
     }
 }

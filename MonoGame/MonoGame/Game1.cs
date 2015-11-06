@@ -35,9 +35,9 @@ namespace MonoGame
         /// </summary>
         protected override void Initialize()
         {
-            keyboard = new KeyboardController(player);
-            player = new Player(new Vector2(0, 0));
             level = new Level("");
+            keyboard = new KeyboardController(level.player);
+            
             base.Initialize();
         }
 
@@ -73,7 +73,8 @@ namespace MonoGame
                 Exit();
 
             // TODO: Add your update logic here
-
+            level.Update(gameTime);
+            keyboard.Update();
             base.Update(gameTime);
         }
 
@@ -86,7 +87,7 @@ namespace MonoGame
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             spriteBatch.Begin();
-
+            level.Draw(spriteBatch);
             spriteBatch.End();
 
             base.Draw(gameTime);
