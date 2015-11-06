@@ -1,9 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Media;
 
 namespace MonoGame
 {
@@ -12,8 +10,13 @@ namespace MonoGame
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        KeyboardController keyboard;
-        ContentManager gameContent;
+        public KeyboardController keyboard;
+        public static ContentManager gameContent;
+        Player player;
+        public Level level;
+
+        private static Game1 sInstance = new Game1();
+        IGameState gameState;
 
         bool isPaused = false, isTitle = true;
 
@@ -32,7 +35,9 @@ namespace MonoGame
         /// </summary>
         protected override void Initialize()
         {
-            keyboard = new KeyboardController();
+            keyboard = new KeyboardController(player);
+            player = new Player(new Vector2(0, 0));
+            level = new Level("");
             base.Initialize();
         }
 
@@ -80,9 +85,16 @@ namespace MonoGame
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // TODO: Add your drawing code here
+            spriteBatch.Begin();
+
+            spriteBatch.End();
 
             base.Draw(gameTime);
+        }
+
+        public static Game1 GetInstance()
+        {
+            return sInstance;
         }
     }
 }
