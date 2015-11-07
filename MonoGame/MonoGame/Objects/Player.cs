@@ -20,6 +20,11 @@ namespace MonoGame
             isDown = true;
         }
 
+        public void Idle()
+        {
+            state.Idle();
+        }
+
         public void Down()
         {
             isDown = true;

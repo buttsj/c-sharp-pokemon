@@ -35,6 +35,11 @@ namespace MonoGame
             player.state = new UpIdleState(player);
         }
 
+        public void Idle()
+        {
+            player.state = new LeftIdleState(player);
+        }
+
         public void Draw(SpriteBatch spriteBatch, Vector2 location, Color color)
         {
             Sprite.Draw(spriteBatch, location, color);

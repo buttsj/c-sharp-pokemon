@@ -7,7 +7,10 @@ namespace MonoGame
         public enum sprites
         {
             // player
-            leftIdlePlayer, leftWalkingPlayer, rightIdlePlayer, rightWalkingPlayer, upIdlePlayer, upWalkingPlayer, downIdlePlayer, downWalkingPlayer
+            leftIdlePlayer, leftWalkingPlayer, rightIdlePlayer, rightWalkingPlayer, upIdlePlayer, upWalkingPlayer, downIdlePlayer, downWalkingPlayer,
+
+            // tiles
+            treeTile, wallTile
         }
 
         public SpriteFactory()
@@ -55,6 +58,16 @@ namespace MonoGame
             {
                 Texture2D upWalkingTexture = Game1.gameContent.Load<Texture2D>("PlayerSprites/UpMovingPlayer");
                 return new PlayerMovingSprite(upWalkingTexture, 3, 1);
+            }
+            if (sprite == sprites.wallTile)
+            {
+                Texture2D wallTileTexture = Game1.gameContent.Load<Texture2D>("TileSprites/treeTileSprite");
+                return new StaticSprite(wallTileTexture);
+            }
+            if (sprite == sprites.treeTile)
+            {
+                Texture2D treeTileTexture = Game1.gameContent.Load<Texture2D>("TileSprites/treeTileSprite");
+                return new StaticSprite(treeTileTexture);
             }
             return null;
         }

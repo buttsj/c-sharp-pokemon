@@ -12,7 +12,6 @@ namespace MonoGame
         int totalFrames;
         int animTimer;
         int UpdateSpeed { get; set; }
-        int SpeedClamp = 50;
 
         public PlayerMovingSprite(Texture2D texture, int rows, int columns)
         {
@@ -21,15 +20,11 @@ namespace MonoGame
             Columns = columns;
             currentFrame = 0;
             totalFrames = Rows * Columns;
-            UpdateSpeed = 90;
+            UpdateSpeed = 150;
         }
 
         public void Update(GameTime gameTime)
         {
-            if (UpdateSpeed < SpeedClamp)
-            {
-                UpdateSpeed = SpeedClamp;
-            }
             animTimer += gameTime.ElapsedGameTime.Milliseconds;
             if (animTimer > UpdateSpeed)
             {

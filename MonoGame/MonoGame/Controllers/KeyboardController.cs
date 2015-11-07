@@ -33,7 +33,12 @@ namespace MonoGame
                 {
                     currentCommand = commandLibrary[key];
                     currentCommand.Execute();
+                    break;
                 }
+            }
+            if (keyboardState.GetPressedKeys().Length == 0)
+            {
+                player.Idle();
             }
         }
     }

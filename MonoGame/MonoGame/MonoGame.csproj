@@ -46,10 +46,12 @@
     <Compile Include="Controllers\KeyboardController.cs" />
     <Compile Include="Interfaces\IAnimatedSprite.cs" />
     <Compile Include="Interfaces\IGameState.cs" />
+    <Compile Include="Interfaces\ITileState.cs" />
     <Compile Include="Interfaces\ISpriteFactory.cs" />
     <Compile Include="Interfaces\ICommands.cs" />
     <Compile Include="Interfaces\IController.cs" />
     <Compile Include="Interfaces\IPlayerState.cs" />
+    <Compile Include="Object States\Tile States\TreeTileState.cs" />
     <Compile Include="Objects\LevelBuilder.cs" />
     <Compile Include="Object States\Player States\DownWalkingState.cs" />
     <Compile Include="Object States\Player States\DownIdleState.cs" />
@@ -68,6 +70,8 @@
     <Compile Include="Sprites\PlayerMovingSprite.cs" />
     <Compile Include="Sprites\StaticSprite.cs" />
     <Compile Include="Commands\UpCommand.cs" />
+    <Compile Include="Objects\Tile.cs" />
+    <Compile Include="Object States\Tile States\WallTileState.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
@@ -86,13 +90,13 @@
     <Content Include="Content\PlayerSprites\LeftIdlePlayer.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\PlayerSprites\RightMovingPlayer.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\PlayerSprites\LeftMovingPlayer.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\PlayerSprites\RightIdlePlayer.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\PlayerSprites\RightMovingPlayer.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\PlayerSprites\UpIdlePlayer.png">
@@ -101,13 +105,19 @@
     <Content Include="Content\PlayerSprites\UpMovingPlayer.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\TileSprites\treeTileSprite.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Icon.ico" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Content\Levels\" />
+    <Content Include="Content\Levels\Level.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
