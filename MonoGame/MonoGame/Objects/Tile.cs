@@ -23,6 +23,11 @@ namespace MonoGame
             this.position = position;
         }
 
+        public Rectangle GetBoundingBox()
+        {
+            return state.GetBoundingBox(position);
+        }
+
         public void Update(GameTime gameTime)
         {
             state.Update(gameTime);

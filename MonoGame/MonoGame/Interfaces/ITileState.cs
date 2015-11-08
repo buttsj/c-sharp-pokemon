@@ -5,6 +5,7 @@ namespace MonoGame
 {
     public interface ITileState
     {
+        Rectangle GetBoundingBox(Vector2 position);
         void Update(GameTime gameTime);
         void Draw(SpriteBatch spriteBatch, Vector2 location, Color color);
 

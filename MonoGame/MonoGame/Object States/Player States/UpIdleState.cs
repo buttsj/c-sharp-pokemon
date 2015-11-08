@@ -15,6 +15,10 @@ namespace MonoGame
             Sprite = factory.builder(SpriteFactory.sprites.upIdlePlayer);
             player = currentPlayer;
         }
+        public Rectangle GetBoundingBox(Vector2 location)
+        {
+            return Sprite.GetBoundingBox(location);
+        }
 
         public void Down()
         {

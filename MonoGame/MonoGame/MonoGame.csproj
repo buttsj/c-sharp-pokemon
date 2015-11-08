@@ -38,6 +38,8 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Collision\TileCollisionResponse.cs" />
+    <Compile Include="Collision\CollisionDetection.cs" />
     <Compile Include="Commands\NullCommand.cs" />
     <Compile Include="Commands\LeftCommand.cs" />
     <Compile Include="Commands\RightCommand.cs" />

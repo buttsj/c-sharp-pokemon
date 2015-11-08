@@ -16,6 +16,13 @@ namespace MonoGame
             Columns = 1;
         }
 
+        public Rectangle GetBoundingBox(Vector2 position)
+        {
+            int width = Texture.Width / Columns;
+            int height = Texture.Height / Rows;
+            return new Rectangle((int)position.X, (int)position.Y, width, height);
+        }
+
         public void Update(GameTime gameTime) { }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 location, Color color)

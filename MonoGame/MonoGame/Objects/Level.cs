@@ -9,7 +9,7 @@ namespace MonoGame
         Game1 game;
         public Player player;
         public LevelBuilder builder;
-
+        CollisionDetection collision;
         public List<Tile> levelTiles = new List<Tile>();
        
         public Level(string fileName)
@@ -17,6 +17,7 @@ namespace MonoGame
             game = Game1.GetInstance();
             builder = new LevelBuilder(this, game);
             player = builder.Build(fileName);
+            collision = new CollisionDetection(player, game);
         }
         
         public void Draw(SpriteBatch spriteBatch)
@@ -34,6 +35,7 @@ namespace MonoGame
             {
                 tile.Update(gameTime);
             }
+            collision.Detect(player, levelTiles);
             player.Update(gameTime);
         }
     }

@@ -12,5 +12,6 @@ namespace MonoGame
         void Left();
         void Right();
         void Idle();
+        Rectangle GetBoundingBox(Vector2 location);
     }
 }

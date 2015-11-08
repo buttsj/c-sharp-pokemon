@@ -15,6 +15,11 @@ namespace MonoGame
             this.game = game;
         }
 
+        public Rectangle GetBoundingBox(Vector2 position)
+        {
+            return sprite.GetBoundingBox(position);
+        }
+
         public void Update(GameTime gameTime)
         {
             sprite.Update(gameTime);

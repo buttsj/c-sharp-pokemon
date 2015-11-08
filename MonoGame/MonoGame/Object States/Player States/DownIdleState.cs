@@ -16,6 +16,11 @@ namespace MonoGame
             player = currentPlayer;
         }
 
+        public Rectangle GetBoundingBox(Vector2 location)
+        {
+            return Sprite.GetBoundingBox(location);
+        }
+
         public void Down()
         {
             player.state = new DownWalkingState(player);

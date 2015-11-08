@@ -12,7 +12,12 @@ namespace MonoGame
         int totalFrames;
         int animTimer;
         int UpdateSpeed { get; set; }
-
+        public Rectangle GetBoundingBox(Vector2 position)
+        {
+            int width = Texture.Width / Columns;
+            int height = Texture.Height / Rows;
+            return new Rectangle((int)position.X, (int)position.Y, width, height);
+        }
         public PlayerMovingSprite(Texture2D texture, int rows, int columns)
         {
             Texture = texture;
@@ -45,8 +50,6 @@ namespace MonoGame
 
             Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
             Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, width, height);
-
-
             spriteBatch.Draw(Texture, destinationRectangle, sourceRectangle, color);
         }
     }
