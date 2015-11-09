@@ -16,6 +16,8 @@ namespace MonoGame
         {
             int width = Texture.Width / Columns;
             int height = Texture.Height / Rows;
+            int row = (int)((float)currentFrame / (float)Columns);
+            int column = currentFrame % Columns;
             return new Rectangle((int)position.X, (int)position.Y, width, height);
         }
         public PlayerMovingSprite(Texture2D texture, int rows, int columns)

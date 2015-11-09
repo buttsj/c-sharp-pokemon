@@ -10,16 +10,9 @@ namespace MonoGame
         public enum TileType { wall, tree}
         public Vector2 position = new Vector2(0, 0);
         
-        public Tile(Game1 game, Tile.TileType type, Vector2 position)
+        public Tile(ITileState state, Vector2 position)
         {
-            if (type == TileType.wall)
-            {
-                state = new WallTileState(game);
-            }
-            if (type == TileType.tree)
-            {
-                state = new TreeTileState(game);
-            }
+            this.state = state;
             this.position = position;
         }
 

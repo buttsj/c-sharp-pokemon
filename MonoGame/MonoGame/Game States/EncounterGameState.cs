@@ -3,11 +3,11 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace MonoGame
 {
-    class PlayingGameState : IGameState 
+    class EncounterGameState : IGameState 
     {
         Game1 game;
 
-        public PlayingGameState(Game1 game)
+        public EncounterGameState(Game1 game)
         {
             this.game = game;
             game.keyboard = new KeyboardController(game.level.player, game);

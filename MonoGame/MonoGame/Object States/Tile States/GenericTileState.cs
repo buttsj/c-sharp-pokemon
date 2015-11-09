@@ -3,16 +3,15 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace MonoGame
 {
-    class WallTileState : ITileState
+    class GenericTileState : ITileState
     {
-        Game1 game;
         IAnimatedSprite sprite;
+        ISpriteFactory factory;
 
-        public WallTileState(Game1 game)
+        public GenericTileState(SpriteFactory.sprites sprite)
         {
-            ISpriteFactory factory = new SpriteFactory();
-            sprite = factory.builder(SpriteFactory.sprites.wallTile);
-            this.game = game;
+            factory = new SpriteFactory();
+            this.sprite = factory.builder(sprite);
         }
 
         public Rectangle GetBoundingBox(Vector2 position)
@@ -22,7 +21,6 @@ namespace MonoGame
 
         public void Update(GameTime gameTime)
         {
-            sprite.Update(gameTime);
         }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 location, Color color)

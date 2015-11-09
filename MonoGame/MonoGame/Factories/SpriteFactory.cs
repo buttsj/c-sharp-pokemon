@@ -10,7 +10,10 @@ namespace MonoGame
             leftIdlePlayer, leftWalkingPlayer, rightIdlePlayer, rightWalkingPlayer, upIdlePlayer, upWalkingPlayer, downIdlePlayer, downWalkingPlayer,
 
             // tiles
-            treeTile, wallTile
+            treeTile, wallTile,
+
+            // gui
+            arrow
         }
 
         public SpriteFactory()
@@ -27,7 +30,7 @@ namespace MonoGame
             if (sprite == sprites.downWalkingPlayer)
             {
                 Texture2D downWalkingTexture = Game1.gameContent.Load<Texture2D>("PlayerSprites/DownMovingPlayer");
-                return new PlayerMovingSprite(downWalkingTexture, 3, 1);
+                return new PlayerMovingSprite(downWalkingTexture, 1, 3);
             }
             if (sprite == sprites.leftIdlePlayer)
             {
@@ -37,7 +40,7 @@ namespace MonoGame
             if (sprite == sprites.leftWalkingPlayer)
             {
                 Texture2D leftWalkingTexture = Game1.gameContent.Load<Texture2D>("PlayerSprites/LeftMovingPlayer");
-                return new PlayerMovingSprite(leftWalkingTexture, 3, 1);
+                return new PlayerMovingSprite(leftWalkingTexture, 1, 3);
             }
             if (sprite == sprites.rightIdlePlayer)
             {
@@ -47,7 +50,7 @@ namespace MonoGame
             if (sprite == sprites.rightWalkingPlayer)
             {
                 Texture2D rightWalkingTexture = Game1.gameContent.Load<Texture2D>("PlayerSprites/RightMovingPlayer");
-                return new PlayerMovingSprite(rightWalkingTexture, 3, 1);
+                return new PlayerMovingSprite(rightWalkingTexture, 1, 3);
             }
             if (sprite == sprites.upIdlePlayer)
             {
@@ -57,7 +60,7 @@ namespace MonoGame
             if (sprite == sprites.upWalkingPlayer)
             {
                 Texture2D upWalkingTexture = Game1.gameContent.Load<Texture2D>("PlayerSprites/UpMovingPlayer");
-                return new PlayerMovingSprite(upWalkingTexture, 3, 1);
+                return new PlayerMovingSprite(upWalkingTexture, 1, 3);
             }
             if (sprite == sprites.wallTile)
             {
@@ -68,6 +71,11 @@ namespace MonoGame
             {
                 Texture2D treeTileTexture = Game1.gameContent.Load<Texture2D>("TileSprites/treeTileSprite");
                 return new StaticSprite(treeTileTexture);
+            }
+            if (sprite == sprites.arrow)
+            {
+                Texture2D arrowTexture = Game1.gameContent.Load<Texture2D>("arrowCursor");
+                return new StaticSprite(arrowTexture);
             }
             return null;
         }

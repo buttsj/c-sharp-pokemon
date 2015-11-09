@@ -12,10 +12,10 @@ namespace MonoGame
         CollisionDetection collision;
         public List<Tile> levelTiles = new List<Tile>();
        
-        public Level(string fileName)
+        public Level(string fileName, Game1 game)
         {
-            game = Game1.GetInstance();
-            builder = new LevelBuilder(this, game);
+            this.game = game;
+            builder = new LevelBuilder(this);
             player = builder.Build(fileName);
             collision = new CollisionDetection(player, game);
         }

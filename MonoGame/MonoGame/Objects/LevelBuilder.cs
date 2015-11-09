@@ -6,21 +6,21 @@ namespace MonoGame
 {
     public class LevelBuilder
     {
-        Game1 game;
         Player player;
         Level level;
         int spacingIncrement = 16;
         ISpriteFactory factory;
+        TileFactory tileFactory;
 
-        Dictionary<string, Tile.TileType> tileDictionary = new Dictionary<string, Tile.TileType>();
+        Dictionary<string, TileFactory.TileType> tileDictionary = new Dictionary<string, TileFactory.TileType>();
 
-        public LevelBuilder(Level currentLevel, Game1 game)
+        public LevelBuilder(Level currentLevel)
         {
-            this.game = game;
             level = currentLevel;
             factory = new SpriteFactory();
-            tileDictionary.Add("W", Tile.TileType.wall);
-            tileDictionary.Add("T", Tile.TileType.tree);
+            tileFactory = new TileFactory();
+            tileDictionary.Add("W", TileFactory.TileType.wallTile);
+            tileDictionary.Add("T", TileFactory.TileType.treeTile);
         }
 
         public Player Build(string fileName)
@@ -45,7 +45,7 @@ namespace MonoGame
                     }
                     if (tileDictionary.ContainsKey(words[i]))
                     {
-                        Tile tile = new Tile(game, tileDictionary[words[i]], new Vector2(xCoord, yCoord));
+                        Tile tile = tileFactory.builder(tileDictionary[words[i]], new Vector2(xCoord, yCoord));
                         level.levelTiles.Add(tile);
                     }
                     xCoord += spacingIncrement * events;

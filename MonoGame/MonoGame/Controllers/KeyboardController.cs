@@ -12,8 +12,10 @@ namespace MonoGame
         private KeyboardState keyboardState;
         private ICommands currentCommand;
         private Dictionary<Keys, ICommands> commandLibrary;
+        private int initialDelay = 10;
+        private bool doInitDelay = true;
 
-        public KeyboardController(Player currentPlayer)
+        public KeyboardController(Player currentPlayer, Game1 game)
         {
             player = currentPlayer;
             commandLibrary = new Dictionary<Keys, ICommands>();
@@ -21,25 +23,35 @@ namespace MonoGame
             commandLibrary.Add(Keys.A, currentCommand = new LeftCommand(player));
             commandLibrary.Add(Keys.S, currentCommand = new DownCommand(player));
             commandLibrary.Add(Keys.D, currentCommand = new RightCommand(player));
+            commandLibrary.Add(Keys.Enter, currentCommand = new PauseCommand(game));
         }
 
         public void Update()
         {
-            currentCommand = new NullCommand();
-            keyboardState = Keyboard.GetState();
-            foreach (Keys key in keyboardState.GetPressedKeys())
+            if (doInitDelay)
             {
-                if (commandLibrary.ContainsKey(key))
+                initialDelay--;
+            }
+            if (initialDelay <= 0)
+            {
+                doInitDelay = false;
+                currentCommand = new NullCommand();
+                keyboardState = Keyboard.GetState();
+                foreach (Keys key in keyboardState.GetPressedKeys())
                 {
-                    currentCommand = commandLibrary[key];
-                    currentCommand.Execute();
-                    break;
+                    if (commandLibrary.ContainsKey(key))
+                    {
+                        currentCommand = commandLibrary[key];
+                        currentCommand.Execute();
+                        break;
+                    }
+                }
+                if (keyboardState.GetPressedKeys().Length == 0)
+                {
+                    player.Idle();
                 }
             }
-            if (keyboardState.GetPressedKeys().Length == 0)
-            {
-                player.Idle();
-            }
+            
         }
     }
 }

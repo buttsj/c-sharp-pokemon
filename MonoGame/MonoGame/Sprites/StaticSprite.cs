@@ -18,9 +18,8 @@ namespace MonoGame
 
         public Rectangle GetBoundingBox(Vector2 position)
         {
-            int width = Texture.Width / Columns;
-            int height = Texture.Height / Rows;
-            return new Rectangle((int)position.X, (int)position.Y, width, height);
+            // subtracted 5 so I could get between two trees
+            return new Rectangle((int)position.X, (int)position.Y, Texture.Width, Texture.Height - 5);
         }
 
         public void Update(GameTime gameTime) { }

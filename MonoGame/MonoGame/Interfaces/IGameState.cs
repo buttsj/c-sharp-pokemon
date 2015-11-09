@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace MonoGame
 {
-    interface IGameState
+    public interface IGameState
     {
         void Update(GameTime gameTime);
         void Draw(SpriteBatch spriteBatch);
