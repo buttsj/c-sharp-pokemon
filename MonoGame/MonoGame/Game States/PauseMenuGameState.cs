@@ -6,17 +6,13 @@ namespace MonoGame
 {
     class PauseMenuGameState : IGameState 
     {
-        int inputBuffer = 10;
         Game1 game;
-        SpriteFactory factory;
         public GUI menu;
         
 
         public PauseMenuGameState(Game1 game)
         {
-            factory = new SpriteFactory();
             this.game = game;
-
             menu = new GUI(game);
             menu.options.Add(new KeyValuePair<ICommands, string>(new IndexMenuCommand(), "Monster Index"));
             menu.options.Add(new KeyValuePair<ICommands, string>(new MonsterMenuCommand(), "Monsters"));
@@ -27,7 +23,6 @@ namespace MonoGame
             menu.options.Add(new KeyValuePair<ICommands, string>(new OptionsMenuCommand(), "Options"));
             menu.options.Add(new KeyValuePair<ICommands, string>(new ExitMenuCommand(game), "Exit"));
             menu.currentCommand = menu.options[0].Key;
-
             game.keyboard = new MenuController(menu);
         }
 

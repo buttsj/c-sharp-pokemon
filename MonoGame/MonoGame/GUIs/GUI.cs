@@ -27,7 +27,7 @@ namespace MonoGame
         {
             this.game = game;
             options = new List<KeyValuePair<ICommands, string>>();
-            font = Game1.gameContent.Load<SpriteFont>("guiFont");
+            font = Game1.gameContent.Load<SpriteFont>("Fonts/guiFont");
             factory = new SpriteFactory();
             arrow = factory.builder(SpriteFactory.sprites.arrow);
         }

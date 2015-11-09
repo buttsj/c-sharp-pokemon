@@ -40,8 +40,15 @@
   <ItemGroup>
     <Compile Include="Collision\TileCollisionResponse.cs" />
     <Compile Include="Collision\CollisionDetection.cs" />
-    <Compile Include="Commands\Menu Direction Commands\MenuSelectCommand.cs" />
-    <Compile Include="Commands\Menu Direction Commands\MenuDownCommand.cs" />
+    <Compile Include="Commands\Encounter Function Commands\FightMenuCommand.cs" />
+    <Compile Include="Commands\Encounter Function Commands\RunAwayCommand.cs" />
+    <Compile Include="Commands\Menu Direction Commands\Encounter Menu\EncounterSelectCommand.cs" />
+    <Compile Include="Commands\Menu Direction Commands\Encounter Menu\EncounterRightCommand.cs" />
+    <Compile Include="Commands\Menu Direction Commands\Encounter Menu\EncounterLeftCommand.cs" />
+    <Compile Include="Commands\Menu Direction Commands\Encounter Menu\EncounterUpCommand.cs" />
+    <Compile Include="Commands\Menu Direction Commands\Encounter Menu\EncounterDownCommand.cs" />
+    <Compile Include="Commands\Menu Direction Commands\Pause Menu\MenuSelectCommand.cs" />
+    <Compile Include="Commands\Menu Direction Commands\Pause Menu\MenuDownCommand.cs" />
     <Compile Include="Commands\Menu Function Commands\ExitMenuCommand.cs" />
     <Compile Include="Commands\Menu Function Commands\OptionsMenuCommand.cs" />
     <Compile Include="Commands\Menu Function Commands\SaveMenuCommand.cs" />
@@ -54,14 +61,17 @@
     <Compile Include="Commands\Player Commands\LeftCommand.cs" />
     <Compile Include="Commands\Player Commands\RightCommand.cs" />
     <Compile Include="Commands\Player Commands\DownCommand.cs" />
-    <Compile Include="Commands\Menu Direction Commands\MenuUpCommand.cs" />
+    <Compile Include="Commands\Menu Direction Commands\Pause Menu\MenuUpCommand.cs" />
     <Compile Include="Commands\Player Commands\PauseCommand.cs" />
+    <Compile Include="Commands\Player Commands\EncounterCommand.cs" />
+    <Compile Include="Controllers\EncounterController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Factories\TileFactory.cs" />
     <Compile Include="Game States\PauseMenuGameState.cs" />
     <Compile Include="Game States\EncounterGameState.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Controllers\KeyboardController.cs" />
+    <Compile Include="GUIs\EncounterGUI.cs" />
     <Compile Include="GUIs\GUI.cs" />
     <Compile Include="Interfaces\IAnimatedSprite.cs" />
     <Compile Include="Interfaces\IGameState.cs" />
@@ -103,6 +113,12 @@
     <Content Include="Content\arrowCursor.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\GUI Sprites\encounterSelectWindow.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\GUI Sprites\encounterWindow.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\PlayerSprites\DownIdlePlayer.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -135,16 +151,14 @@
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Content\Fonts\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Content\Levels\Level.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Content\guiFont.spritefont">
+    <None Include="Content\Fonts\guiFont.spritefont">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

@@ -6,22 +6,26 @@ namespace MonoGame
     class EncounterGameState : IGameState 
     {
         Game1 game;
+        public EncounterGUI menu;
 
         public EncounterGameState(Game1 game)
         {
             this.game = game;
-            game.keyboard = new KeyboardController(game.level.player, game);
+            menu = new EncounterGUI(game);
+            menu.currentCommand = menu.options[0].Key;
+            game.keyboard = new EncounterController(menu);
         }
 
         public void Update(GameTime gameTime)
         {
             game.keyboard.Update();
-            game.level.Update(gameTime);
+            menu.Update(gameTime);
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            game.level.Draw(spriteBatch);
+            //game.level.Draw(spriteBatch);
+            menu.Draw(spriteBatch);
         }
     }
 }

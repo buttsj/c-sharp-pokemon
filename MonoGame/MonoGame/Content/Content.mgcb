@@ -13,9 +13,9 @@
 
 #---------------------------------- Content ---------------------------------#
 
-#begin guiFont.spritefont
+#begin Fonts/guiFont.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor
 /processorParam:TextureFormat=Compressed
-/build:guiFont.spritefont
+/build:Fonts/guiFont.spritefont
 
