@@ -10,7 +10,10 @@ namespace MonoGame
         public Player player;
         public LevelBuilder builder;
         CollisionDetection collision;
+
         public List<Tile> levelTiles = new List<Tile>();
+        public List<Grass> levelGrass = new List<Grass>();
+        public List<Ledge> levelLedges = new List<Ledge>();
        
         public Level(string fileName, Game1 game)
         {
@@ -26,6 +29,14 @@ namespace MonoGame
             {
                 tile.Draw(spriteBatch, tile.position, Color.White);
             }
+            foreach (Grass grass in levelGrass)
+            {
+                grass.Draw(spriteBatch, grass.position, Color.White);
+            }
+            foreach (Ledge ledge in levelLedges)
+            {
+                ledge.Draw(spriteBatch, ledge.position, Color.White);
+            }
             player.Draw(spriteBatch);
         }
 
@@ -35,7 +46,15 @@ namespace MonoGame
             {
                 tile.Update(gameTime);
             }
-            collision.Detect(player, levelTiles);
+            foreach (Grass grass in levelGrass)
+            {
+                grass.Update(gameTime);
+            }
+            foreach (Ledge ledge in levelLedges)
+            {
+                ledge.Update(gameTime);
+            }
+            collision.Detect(player, levelTiles, levelGrass, levelLedges);
             player.Update(gameTime);
         }
     }

@@ -9,18 +9,29 @@ namespace MonoGame
         Player player;
         Level level;
         int spacingIncrement = 16;
+
         ISpriteFactory factory;
         TileFactory tileFactory;
+        GrassFactory grassFactory;
+        LedgeFactory ledgeFactory;
 
         Dictionary<string, TileFactory.TileType> tileDictionary = new Dictionary<string, TileFactory.TileType>();
+        Dictionary<string, GrassFactory.GrassType> grassDictionary = new Dictionary<string, GrassFactory.GrassType>();
+        Dictionary<string, LedgeFactory.LedgeType> ledgeDictionary = new Dictionary<string, LedgeFactory.LedgeType>();
 
         public LevelBuilder(Level currentLevel)
         {
             level = currentLevel;
             factory = new SpriteFactory();
             tileFactory = new TileFactory();
+            grassFactory = new GrassFactory();
+            ledgeFactory = new LedgeFactory();
             tileDictionary.Add("W", TileFactory.TileType.wallTile);
             tileDictionary.Add("T", TileFactory.TileType.treeTile);
+            grassDictionary.Add("G", GrassFactory.GrassType.shortGrass);
+            ledgeDictionary.Add("M", LedgeFactory.LedgeType.ledgeMiddle);
+            ledgeDictionary.Add("R", LedgeFactory.LedgeType.ledgeRightEnd);
+            ledgeDictionary.Add("L", LedgeFactory.LedgeType.ledgeLeftEnd);
         }
 
         public Player Build(string fileName)
@@ -47,6 +58,16 @@ namespace MonoGame
                     {
                         Tile tile = tileFactory.builder(tileDictionary[words[i]], new Vector2(xCoord, yCoord));
                         level.levelTiles.Add(tile);
+                    }
+                    if (grassDictionary.ContainsKey(words[i]))
+                    {
+                        Grass grass = grassFactory.builder(grassDictionary[words[i]], new Vector2(xCoord, yCoord));
+                        level.levelGrass.Add(grass);
+                    }
+                    if (ledgeDictionary.ContainsKey(words[i]))
+                    {
+                        Ledge ledge = ledgeFactory.builder(ledgeDictionary[words[i]], new Vector2(xCoord, yCoord));
+                        level.levelLedges.Add(ledge);
                     }
                     xCoord += spacingIncrement * events;
                 }

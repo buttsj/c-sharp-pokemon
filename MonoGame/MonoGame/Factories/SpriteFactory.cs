@@ -13,7 +13,13 @@ namespace MonoGame
             treeTile, wallTile,
 
             // gui
-            arrow
+            arrow,
+
+            // encounters
+            grass,
+
+            // ledges
+            ledgeLeftCurve, ledgeRightCurve, ledgeLeftEnd, ledgeRightEnd, ledgeMiddle
         }
 
         public SpriteFactory()
@@ -76,6 +82,36 @@ namespace MonoGame
             {
                 Texture2D arrowTexture = Game1.gameContent.Load<Texture2D>("arrowCursor");
                 return new StaticSprite(arrowTexture);
+            }
+            if (sprite == sprites.grass)
+            {
+                Texture2D grassTexture = Game1.gameContent.Load<Texture2D>("TileSprites/grassTexture");
+                return new DynamicSprite(grassTexture, 1, 1);
+            }
+            if (sprite == sprites.ledgeLeftCurve)
+            {
+                Texture2D ledgeTexture = Game1.gameContent.Load<Texture2D>("TileSprites/Ledges/ledgeLeftCurve");
+                return new StaticSprite(ledgeTexture);
+            }
+            if (sprite == sprites.ledgeLeftEnd)
+            {
+                Texture2D ledgeTexture = Game1.gameContent.Load<Texture2D>("TileSprites/Ledges/ledgeLeftEnd");
+                return new StaticSprite(ledgeTexture);
+            }
+            if (sprite == sprites.ledgeMiddle)
+            {
+                Texture2D ledgeTexture = Game1.gameContent.Load<Texture2D>("TileSprites/Ledges/ledgeMiddle");
+                return new StaticSprite(ledgeTexture);
+            }
+            if (sprite == sprites.ledgeRightCurve)
+            {
+                Texture2D ledgeTexture = Game1.gameContent.Load<Texture2D>("TileSprites/Ledges/ledgeRightCurve");
+                return new StaticSprite(ledgeTexture);
+            }
+            if (sprite == sprites.ledgeRightEnd)
+            {
+                Texture2D ledgeTexture = Game1.gameContent.Load<Texture2D>("TileSprites/Ledges/ledgeRightEnd");
+                return new StaticSprite(ledgeTexture);
             }
             return null;
         }

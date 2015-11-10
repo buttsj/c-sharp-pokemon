@@ -3,13 +3,14 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace MonoGame
 {
-    public class Tile
+    public class Ledge
     {
         public float xpos = 0, ypos = 0;
-        public ITileState state;
+        public ILedgeState state;
         public Vector2 position = new Vector2(0, 0);
+        public bool intersected = false;
         
-        public Tile(ITileState state, Vector2 position)
+        public Ledge(ILedgeState state, Vector2 position)
         {
             this.state = state;
             this.position = position;

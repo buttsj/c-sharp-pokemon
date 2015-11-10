@@ -24,7 +24,6 @@ namespace MonoGame
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            //game.level.Draw(spriteBatch);
             menu.Draw(spriteBatch);
         }
     }

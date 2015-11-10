@@ -38,6 +38,8 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Collision\LedgeCollisionResponse.cs" />
+    <Compile Include="Collision\GrassCollisionResponse.cs" />
     <Compile Include="Collision\TileCollisionResponse.cs" />
     <Compile Include="Collision\CollisionDetection.cs" />
     <Compile Include="Commands\Encounter Function Commands\FightMenuCommand.cs" />
@@ -63,9 +65,10 @@
     <Compile Include="Commands\Player Commands\DownCommand.cs" />
     <Compile Include="Commands\Menu Direction Commands\Pause Menu\MenuUpCommand.cs" />
     <Compile Include="Commands\Player Commands\PauseCommand.cs" />
-    <Compile Include="Commands\Player Commands\EncounterCommand.cs" />
     <Compile Include="Controllers\EncounterController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Factories\GrassFactory.cs" />
+    <Compile Include="Factories\LedgeFactory.cs" />
     <Compile Include="Factories\TileFactory.cs" />
     <Compile Include="Game States\PauseMenuGameState.cs" />
     <Compile Include="Game States\EncounterGameState.cs" />
@@ -75,12 +78,17 @@
     <Compile Include="GUIs\GUI.cs" />
     <Compile Include="Interfaces\IAnimatedSprite.cs" />
     <Compile Include="Interfaces\IGameState.cs" />
+    <Compile Include="Interfaces\ILedgeState.cs" />
+    <Compile Include="Interfaces\IGrassState.cs" />
     <Compile Include="Interfaces\ITileState.cs" />
     <Compile Include="Interfaces\ISpriteFactory.cs" />
     <Compile Include="Interfaces\ICommands.cs" />
     <Compile Include="Interfaces\IController.cs" />
     <Compile Include="Interfaces\IPlayerState.cs" />
+    <Compile Include="Object States\Tile States\LedgeTileState.cs" />
+    <Compile Include="Object States\Tile States\GrassTileState.cs" />
     <Compile Include="Object States\Tile States\GenericTileState.cs" />
+    <Compile Include="Objects\Ledge.cs" />
     <Compile Include="Objects\LevelBuilder.cs" />
     <Compile Include="Object States\Player States\DownWalkingState.cs" />
     <Compile Include="Object States\Player States\DownIdleState.cs" />
@@ -94,9 +102,12 @@
     <Compile Include="Objects\Monster.cs" />
     <Compile Include="Objects\Player.cs" />
     <Compile Include="Game States\PlayingGameState.cs" />
+    <Compile Include="Objects\Grass.cs" />
+    <Compile Include="Objects\RandomExtension.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Factories\SpriteFactory.cs" />
+    <Compile Include="Sprites\DynamicSprite.cs" />
     <Compile Include="Sprites\PlayerMovingSprite.cs" />
     <Compile Include="Sprites\StaticSprite.cs" />
     <Compile Include="Commands\Player Commands\UpCommand.cs" />
@@ -141,6 +152,24 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\PlayerSprites\UpMovingPlayer.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\TileSprites\grassTexture.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\TileSprites\Ledges\ledgeLeftCurve.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\TileSprites\Ledges\ledgeLeftEnd.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\TileSprites\Ledges\ledgeMiddle.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\TileSprites\Ledges\ledgeRightCurve.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\TileSprites\Ledges\ledgeRightEnd.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\TileSprites\treeTileSprite.png">

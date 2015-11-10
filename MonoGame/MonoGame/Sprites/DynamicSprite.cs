@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace MonoGame
 {
-    class PlayerMovingSprite : IAnimatedSprite
+    class DynamicSprite : IAnimatedSprite
     {
         Texture2D Texture { get; set; }
         int Rows { get; set; }
@@ -13,7 +13,7 @@ namespace MonoGame
         int animTimer;
         int UpdateSpeed { get; set; }
         
-        public PlayerMovingSprite(Texture2D texture, int rows, int columns)
+        public DynamicSprite(Texture2D texture, int rows, int columns)
         {
             Texture = texture;
             Rows = rows;

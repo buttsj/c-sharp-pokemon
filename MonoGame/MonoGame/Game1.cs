@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.Input;
+using System;
 
 namespace MonoGame
 {
@@ -53,10 +53,10 @@ namespace MonoGame
         
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.WhiteSmoke);
 
             spriteBatch.Begin();
-            spriteBatch.DrawString(font, "Press E for encounter, Enter for Pause Menu", new Vector2(2, 2), Color.Black);
+            spriteBatch.DrawString(font, "Press Enter for Pause Menu", new Vector2(2, 2), Color.Black);
             gameState.Draw(spriteBatch);
             spriteBatch.End();
 
