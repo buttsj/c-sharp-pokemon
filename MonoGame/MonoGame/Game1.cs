@@ -11,10 +11,14 @@ namespace MonoGame
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         public static ContentManager gameContent;
+
+        // interfaces
         public IController keyboard;
         public IGameState gameState;
+
+        // important items
         public Level level;
-        SpriteFont font;
+        public Camera camera;
 
         private static Game1 sInstance = new Game1();
         public bool isPaused = false, isTitle = true;
@@ -31,7 +35,6 @@ namespace MonoGame
             level = new Level("Levels/Level.csv", this);
             keyboard = new KeyboardController(level.player, this);
             gameState = new PlayingGameState(this);
-            font = gameContent.Load<SpriteFont>("Fonts/guiFont");
             base.Initialize();
         }
         
@@ -56,7 +59,6 @@ namespace MonoGame
             GraphicsDevice.Clear(Color.WhiteSmoke);
 
             spriteBatch.Begin();
-            spriteBatch.DrawString(font, "Press Enter for Pause Menu", new Vector2(2, 2), Color.Black);
             gameState.Draw(spriteBatch);
             spriteBatch.End();
 

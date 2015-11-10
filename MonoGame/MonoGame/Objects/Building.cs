@@ -9,6 +9,8 @@ namespace MonoGame
         public IBuildingState state;
         public Vector2 position = new Vector2(0, 0);
         public bool isDoor = false;
+        public string destination = "";
+        public string source = "";
         
         public Building(IBuildingState state, Vector2 position)
         {

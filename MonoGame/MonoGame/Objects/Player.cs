@@ -8,6 +8,7 @@ namespace MonoGame
 
         public IPlayerState state { get; set; }
         public Vector2 position;
+        public Vector2 oldPosition;
         public bool isLeft = false;
         public bool isRight = false;
         public bool isUp = false;
@@ -17,6 +18,7 @@ namespace MonoGame
         {
             state = new RightIdleState(this);
             position = startingPosition;
+            oldPosition = startingPosition;
             isDown = true;
         }
 

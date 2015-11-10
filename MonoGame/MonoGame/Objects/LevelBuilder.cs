@@ -80,6 +80,8 @@ namespace MonoGame
                         if (words[i] == "I")
                         {
                             building.isDoor = true;
+                            building.destination = "Levels/pokeCenterLevel.csv";
+                            building.source = fileName;
                         }
                         level.levelBuildings.Add(building);
                     }
