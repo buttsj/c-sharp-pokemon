@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace MonoGame
 {
-    public interface IGrassState
+    public interface IBuildingState
     {
         Rectangle GetBoundingBox(Vector2 position);
         void Update(GameTime gameTime);

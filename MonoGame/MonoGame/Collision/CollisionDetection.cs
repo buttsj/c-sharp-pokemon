@@ -10,9 +10,11 @@ namespace MonoGame
     {
         Game1 game;
         ISpriteFactory factory = new SpriteFactory();
+
         public TileCollisionResponse tileResponse;
         public GrassCollisionResponse grassResponse;
         public LedgeCollisionResponse ledgeResponse;
+        public BuildingCollisionResponse buildingResponse;
 
         public CollisionDetection(Player player, Game1 game)
         {
@@ -20,9 +22,10 @@ namespace MonoGame
             grassResponse = new GrassCollisionResponse(game);
             tileResponse = new TileCollisionResponse(game);
             ledgeResponse = new LedgeCollisionResponse(game);
+            buildingResponse = new BuildingCollisionResponse(game);
         }
 
-        public void Detect(Player player, List<Tile> levelTiles, List<Grass> levelGrass, List<Ledge> levelLedges)
+        public void Detect(Player player, List<Tile> levelTiles, List<Grass> levelGrass, List<Ledge> levelLedges, List<Building> levelBuildings)
         {
             Rectangle playerBox = player.state.GetBoundingBox(player.position);
             foreach (Tile tile in levelTiles)
@@ -52,6 +55,14 @@ namespace MonoGame
                 if (ledgeBox.Intersects(playerBox))
                 {
                     ledgeResponse.PlayerTileCollide(player, ledge);
+                }
+            }
+            foreach (Building building in levelBuildings)
+            {
+                Rectangle buildingBox = building.GetBoundingBox();
+                if (buildingBox.Intersects(playerBox))
+                {
+                    buildingResponse.PlayerTileCollide(player, building);
                 }
             }
         }

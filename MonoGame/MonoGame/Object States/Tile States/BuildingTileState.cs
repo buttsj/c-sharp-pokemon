@@ -3,12 +3,12 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace MonoGame
 {
-    class GrassTileState : IGrassState
+    class BuildingTileState : IBuildingState
     {
         IAnimatedSprite sprite;
         ISpriteFactory factory;
 
-        public GrassTileState(SpriteFactory.sprites sprite)
+        public BuildingTileState(SpriteFactory.sprites sprite)
         {
             factory = new SpriteFactory();
             this.sprite = factory.builder(sprite);

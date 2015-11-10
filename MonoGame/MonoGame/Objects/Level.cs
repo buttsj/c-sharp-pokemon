@@ -14,6 +14,7 @@ namespace MonoGame
         public List<Tile> levelTiles = new List<Tile>();
         public List<Grass> levelGrass = new List<Grass>();
         public List<Ledge> levelLedges = new List<Ledge>();
+        public List<Building> levelBuildings = new List<Building>();
        
         public Level(string fileName, Game1 game)
         {
@@ -37,6 +38,10 @@ namespace MonoGame
             {
                 ledge.Draw(spriteBatch, ledge.position, Color.White);
             }
+            foreach (Building building in levelBuildings)
+            {
+                building.Draw(spriteBatch, building.position, Color.White);
+            }
             player.Draw(spriteBatch);
         }
 
@@ -54,7 +59,11 @@ namespace MonoGame
             {
                 ledge.Update(gameTime);
             }
-            collision.Detect(player, levelTiles, levelGrass, levelLedges);
+            foreach (Building building in levelBuildings)
+            {
+                building.Update(gameTime);
+            }
+            collision.Detect(player, levelTiles, levelGrass, levelLedges, levelBuildings);
             player.Update(gameTime);
         }
     }

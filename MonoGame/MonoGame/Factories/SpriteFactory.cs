@@ -19,7 +19,10 @@ namespace MonoGame
             grass,
 
             // ledges
-            ledgeLeftCurve, ledgeRightCurve, ledgeLeftEnd, ledgeRightEnd, ledgeMiddle
+            ledgeLeftCurve, ledgeRightCurve, ledgeLeftEnd, ledgeRightEnd, ledgeMiddle,
+
+            // buildings
+            pokeCenterLeft, pokeCenterRight, japBuildingLeft, japBuildingRight
         }
 
         public SpriteFactory()
@@ -112,6 +115,16 @@ namespace MonoGame
             {
                 Texture2D ledgeTexture = Game1.gameContent.Load<Texture2D>("TileSprites/Ledges/ledgeRightEnd");
                 return new StaticSprite(ledgeTexture);
+            }
+            if (sprite == sprites.pokeCenterLeft)
+            {
+                Texture2D pokeLTexture = Game1.gameContent.Load<Texture2D>("TileSprites/Buildings/pokeCenterLeft");
+                return new StaticSprite(pokeLTexture);
+            }
+            if (sprite == sprites.pokeCenterRight)
+            {
+                Texture2D pokeRTexture = Game1.gameContent.Load<Texture2D>("TileSprites/Buildings/pokeCenterRight");
+                return new StaticSprite(pokeRTexture);
             }
             return null;
         }

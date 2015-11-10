@@ -39,6 +39,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Collision\GrassCollisionResponse.cs" />
+    <Compile Include="Collision\BuildingCollisionResponse.cs" />
     <Compile Include="Collision\LedgeCollisionResponse.cs" />
     <Compile Include="Collision\TileCollisionResponse.cs" />
     <Compile Include="Collision\CollisionDetection.cs" />
@@ -67,6 +68,7 @@
     <Compile Include="Commands\Player Commands\PauseCommand.cs" />
     <Compile Include="Controllers\EncounterController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Factories\BuildingFactory.cs" />
     <Compile Include="Factories\GrassFactory.cs" />
     <Compile Include="Factories\LedgeFactory.cs" />
     <Compile Include="Factories\TileFactory.cs" />
@@ -78,6 +80,7 @@
     <Compile Include="GUIs\GUI.cs" />
     <Compile Include="Interfaces\IAnimatedSprite.cs" />
     <Compile Include="Interfaces\IGameState.cs" />
+    <Compile Include="Interfaces\IBuildingState.cs" />
     <Compile Include="Interfaces\ILedgeState.cs" />
     <Compile Include="Interfaces\IGrassState.cs" />
     <Compile Include="Interfaces\ITileState.cs" />
@@ -85,9 +88,11 @@
     <Compile Include="Interfaces\ICommands.cs" />
     <Compile Include="Interfaces\IController.cs" />
     <Compile Include="Interfaces\IPlayerState.cs" />
+    <Compile Include="Object States\Tile States\BuildingTileState.cs" />
     <Compile Include="Object States\Tile States\LedgeTileState.cs" />
     <Compile Include="Object States\Tile States\GrassTileState.cs" />
     <Compile Include="Object States\Tile States\GenericTileState.cs" />
+    <Compile Include="Objects\Building.cs" />
     <Compile Include="Objects\Ledge.cs" />
     <Compile Include="Objects\LevelBuilder.cs" />
     <Compile Include="Object States\Player States\DownWalkingState.cs" />
@@ -152,6 +157,18 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\PlayerSprites\UpMovingPlayer.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\TileSprites\Buildings\japaneseHomeLeft.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\TileSprites\Buildings\japaneseHomeRight.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\TileSprites\Buildings\pokeCenterLeft.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\TileSprites\Buildings\pokeCenterRight.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\TileSprites\grassTexture.png">

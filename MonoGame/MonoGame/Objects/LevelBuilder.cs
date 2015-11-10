@@ -14,10 +14,12 @@ namespace MonoGame
         TileFactory tileFactory;
         GrassFactory grassFactory;
         LedgeFactory ledgeFactory;
+        BuildingFactory buildingFactory;
 
         Dictionary<string, TileFactory.TileType> tileDictionary = new Dictionary<string, TileFactory.TileType>();
         Dictionary<string, GrassFactory.GrassType> grassDictionary = new Dictionary<string, GrassFactory.GrassType>();
         Dictionary<string, LedgeFactory.LedgeType> ledgeDictionary = new Dictionary<string, LedgeFactory.LedgeType>();
+        Dictionary<string, BuildingFactory.BuildingType> buildingDictionary = new Dictionary<string, BuildingFactory.BuildingType>();
 
         public LevelBuilder(Level currentLevel)
         {
@@ -26,12 +28,15 @@ namespace MonoGame
             tileFactory = new TileFactory();
             grassFactory = new GrassFactory();
             ledgeFactory = new LedgeFactory();
+            buildingFactory = new BuildingFactory();
             tileDictionary.Add("W", TileFactory.TileType.wallTile);
             tileDictionary.Add("T", TileFactory.TileType.treeTile);
             grassDictionary.Add("G", GrassFactory.GrassType.shortGrass);
             ledgeDictionary.Add("M", LedgeFactory.LedgeType.ledgeMiddle);
             ledgeDictionary.Add("R", LedgeFactory.LedgeType.ledgeRightEnd);
             ledgeDictionary.Add("L", LedgeFactory.LedgeType.ledgeLeftEnd);
+            buildingDictionary.Add("I", BuildingFactory.BuildingType.pokeCenterLeft);
+            buildingDictionary.Add("O", BuildingFactory.BuildingType.pokeCenterRight);
         }
 
         public Player Build(string fileName)
@@ -68,6 +73,15 @@ namespace MonoGame
                     {
                         Ledge ledge = ledgeFactory.builder(ledgeDictionary[words[i]], new Vector2(xCoord, yCoord));
                         level.levelLedges.Add(ledge);
+                    }
+                    if (buildingDictionary.ContainsKey(words[i]))
+                    {
+                        Building building = buildingFactory.builder(buildingDictionary[words[i]], new Vector2(xCoord, yCoord));
+                        if (words[i] == "I")
+                        {
+                            building.isDoor = true;
+                        }
+                        level.levelBuildings.Add(building);
                     }
                     xCoord += spacingIncrement * events;
                 }
