@@ -38,8 +38,8 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Collision\LedgeCollisionResponse.cs" />
     <Compile Include="Collision\GrassCollisionResponse.cs" />
+    <Compile Include="Collision\LedgeCollisionResponse.cs" />
     <Compile Include="Collision\TileCollisionResponse.cs" />
     <Compile Include="Collision\CollisionDetection.cs" />
     <Compile Include="Commands\Encounter Function Commands\FightMenuCommand.cs" />
