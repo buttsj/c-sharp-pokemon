@@ -34,6 +34,7 @@ namespace MonoGame
         {
             level = new Level("Levels/Level.csv", this);
             keyboard = new KeyboardController(level.player, this);
+            camera = new Camera(GraphicsDevice.Viewport, this);
             gameState = new PlayingGameState(this);
             base.Initialize();
         }
@@ -50,6 +51,7 @@ namespace MonoGame
         
         protected override void Update(GameTime gameTime)
         {
+            //camera.Update(gameTime);
             gameState.Update(gameTime);
             base.Update(gameTime);
         }
@@ -58,7 +60,7 @@ namespace MonoGame
         {
             GraphicsDevice.Clear(Color.WhiteSmoke);
 
-            spriteBatch.Begin();
+            spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, camera.GetViewMatrix());
             gameState.Draw(spriteBatch);
             spriteBatch.End();
 

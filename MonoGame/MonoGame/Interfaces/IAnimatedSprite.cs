@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace MonoGame
 {
-    interface IAnimatedSprite
+    public interface IAnimatedSprite
     {
         void Update(GameTime gameTime);
         void Draw(SpriteBatch spriteBatch, Vector2 location, Color color);

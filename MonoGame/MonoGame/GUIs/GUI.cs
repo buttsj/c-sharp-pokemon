@@ -8,6 +8,7 @@ namespace MonoGame
     {
         Game1 game;
 
+        public Texture2D border;
         public List<KeyValuePair<ICommands, string>> options { get; set; }
         public ICommands currentCommand { get; set; }
         int selection = 0, menuNumber = 0;
@@ -20,12 +21,17 @@ namespace MonoGame
 
         IAnimatedSprite arrow;
 
-        public Vector2 textStartingPosition = new Vector2(550, 50);
-        public Vector2 arrowStartingPosition = new Vector2(540, 50);
+        public Vector2 textStartingPosition;
+        public Vector2 arrowStartingPosition;
         
         public GUI(Game1 game)
         {
             this.game = game;
+            border = Game1.gameContent.Load<Texture2D>("GUI Sprites/menuBorder");
+            textStartingPosition.X = game.level.player.position.X + 90;
+            arrowStartingPosition.X = game.level.player.position.X + 80;
+            textStartingPosition.Y = game.level.player.position.Y - 110;
+            arrowStartingPosition.Y = game.level.player.position.Y - 110;
             options = new List<KeyValuePair<ICommands, string>>();
             font = Game1.gameContent.Load<SpriteFont>("Fonts/guiFont");
             factory = new SpriteFactory();
@@ -75,6 +81,7 @@ namespace MonoGame
 
         public void Draw(SpriteBatch spriteBatch)
         {
+            spriteBatch.Draw(border, new Rectangle((int)game.level.player.position.X + 70, (int)game.level.player.position.Y - 120, 130, 200), Color.White);
             foreach (KeyValuePair<ICommands, string> pair in options)
             {
                 spriteBatch.DrawString(font, pair.Value, textStartingPosition + (adjust * menuNumber), Color.Black);

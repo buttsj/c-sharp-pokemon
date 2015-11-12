@@ -80,8 +80,6 @@
     <Compile Include="GUIs\EncounterGUI.cs" />
     <Compile Include="GUIs\GUI.cs" />
     <Compile Include="Interfaces\IAnimatedSprite.cs" />
-    <Compile Include="Interfaces\ICamera.cs" />
-    <Compile Include="Interfaces\IFocusable.cs" />
     <Compile Include="Interfaces\IGameState.cs" />
     <Compile Include="Interfaces\IBuildingState.cs" />
     <Compile Include="Interfaces\ILedgeState.cs" />
@@ -136,6 +134,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\GUI Sprites\encounterWindow.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\GUI Sprites\menuBorder.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\PlayerSprites\DownIdlePlayer.png">

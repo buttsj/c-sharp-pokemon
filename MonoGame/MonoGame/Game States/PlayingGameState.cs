@@ -17,6 +17,7 @@ namespace MonoGame
         {
             game.keyboard.Update();
             game.level.Update(gameTime);
+            game.camera.LookAt(game.level.player.position);
         }
 
         public void Draw(SpriteBatch spriteBatch)

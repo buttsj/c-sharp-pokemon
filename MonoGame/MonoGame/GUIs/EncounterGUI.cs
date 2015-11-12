@@ -19,6 +19,7 @@ namespace MonoGame
 
         IAnimatedSprite arrow;
 
+        public Vector2 cornerOfWindow = new Vector2(530, 270);
         public Vector2 textStartingPosition = new Vector2(550, 350);
         Vector2 adjustDown = new Vector2(0, 15);
         Vector2 adjustRight = new Vector2(80, 0);
