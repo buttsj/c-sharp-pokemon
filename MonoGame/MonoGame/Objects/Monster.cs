@@ -5,7 +5,6 @@ namespace MonoGame
 {
     public class Monster
     {
-
         public int hp;
         public int atk;
         public int def;
@@ -20,7 +19,7 @@ namespace MonoGame
         
         public Texture2D sprite;
 
-        public Monster(int hp, int atk, int def, int spec, int spAtk, int spDef, int speed, string name, string location)
+        public Monster(string name, int hp, int atk, int def, int spec, int spAtk, int spDef, int speed, string location)
         {
             this.hp = hp;
             this.atk = atk;
@@ -37,7 +36,7 @@ namespace MonoGame
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(sprite, new Rectangle(50, 50, 25, 25), Color.White);
+            spriteBatch.Draw(sprite, new Rectangle(480, 300, 40, 40), Color.White);
         }
         
     }

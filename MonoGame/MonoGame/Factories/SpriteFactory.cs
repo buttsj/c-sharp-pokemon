@@ -22,7 +22,13 @@ namespace MonoGame
             ledgeLeftCurve, ledgeRightCurve, ledgeLeftEnd, ledgeRightEnd, ledgeMiddle,
 
             // buildings
-            pokeCenterLeft, pokeCenterRight, japBuildingLeft, japBuildingRight
+            pokeCenterLeft, pokeCenterRight, japBuildingLeft, japBuildingRight,
+
+            // poke center stuff
+            pokeCounterLeft, pokeCounterBottom, pokeCounterMiddle, pokeCounterRight,
+
+            // exit
+            exit
         }
 
         public SpriteFactory()
@@ -125,6 +131,31 @@ namespace MonoGame
             {
                 Texture2D pokeRTexture = Game1.gameContent.Load<Texture2D>("TileSprites/Buildings/pokeCenterRight");
                 return new StaticSprite(pokeRTexture);
+            }
+            if (sprite == sprites.pokeCounterLeft)
+            {
+                Texture2D pokeCounter = Game1.gameContent.Load<Texture2D>("TileSprites/PokeCenter/pokeCounterLeft");
+                return new StaticSprite(pokeCounter);
+            }
+            if (sprite == sprites.pokeCounterMiddle)
+            {
+                Texture2D pokeCounter = Game1.gameContent.Load<Texture2D>("TileSprites/PokeCenter/pokeCounterMiddle");
+                return new StaticSprite(pokeCounter);
+            }
+            if (sprite == sprites.pokeCounterBottom)
+            {
+                Texture2D pokeCounter = Game1.gameContent.Load<Texture2D>("TileSprites/PokeCenter/pokeCounterBottom");
+                return new StaticSprite(pokeCounter);
+            }
+            if (sprite == sprites.pokeCounterRight)
+            {
+                Texture2D pokeCounter = Game1.gameContent.Load<Texture2D>("TileSprites/PokeCenter/pokeCounterRight");
+                return new StaticSprite(pokeCounter);
+            }
+            if (sprite == sprites.exit)
+            {
+                Texture2D pokeCounter = Game1.gameContent.Load<Texture2D>("TileSprites/PokeCenter/exitTexture");
+                return new StaticSprite(pokeCounter);
             }
             return null;
         }

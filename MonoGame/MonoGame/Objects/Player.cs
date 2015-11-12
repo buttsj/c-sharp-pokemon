@@ -10,21 +10,26 @@ namespace MonoGame
         public IPlayerState state { get; set; }
         public Vector2 position;
         public Vector2 oldPosition;
-        public bool isLeft = false;
-        public bool isRight = false;
-        public bool isUp = false;
-        public bool isDown = false;
 
+        public Monster createdMonster;
         public Monster[] pocketMonsters = new Monster[8];
         public int monsterCount = 0;
         public ArrayList storedMonsters = new ArrayList();
+        public MonsterBuilder monsterBuilder;
 
         public Player(Vector2 startingPosition)
         {
             state = new RightIdleState(this);
             position = startingPosition;
             oldPosition = startingPosition;
-            isDown = true;
+            monsterBuilder = new MonsterBuilder("Index/Index.csv");
+            CreateAMonster();
+        }
+
+        public void CreateAMonster()
+        {
+            createdMonster = monsterBuilder.monsterList["Jigglypuff"];
+            AcquireMonster(createdMonster);
         }
 
         public void Idle()
@@ -34,40 +39,24 @@ namespace MonoGame
 
         public void Down()
         {
-            isDown = true;
-            isLeft = false;
-            isRight = false;
-            isUp = false;
             state.Down();
             position.Y += 1;
     }
 
         public void Left()
         {
-            isDown = false;
-            isLeft = true;
-            isRight = false;
-            isUp = false;
             state.Left();
             position.X -= 1;
         }
 
         public void Right()
         {
-            isDown = false;
-            isLeft = false;
-            isRight = true;
-            isUp = false;
             state.Right();
             position.X += 1;
         }
 
         public void Up()
         {
-            isDown = false;
-            isLeft = false;
-            isRight = false;
-            isUp = true;
             state.Up();
             position.Y -= 1;
         }

@@ -19,7 +19,7 @@ namespace MonoGame
 
         IAnimatedSprite arrow;
 
-        public Vector2 cornerOfWindow = new Vector2(530, 270);
+        public Vector2 centerOfWindow = new Vector2(530, 270);
         public Vector2 textStartingPosition = new Vector2(550, 350);
         Vector2 adjustDown = new Vector2(0, 15);
         Vector2 adjustRight = new Vector2(80, 0);
@@ -27,6 +27,8 @@ namespace MonoGame
 
         Texture2D encounterBorder;
         Texture2D encounterSelectWindow;
+
+        public bool monsterSummoned = true;
         
         public EncounterGUI(Game1 game)
         {
@@ -157,6 +159,11 @@ namespace MonoGame
 
         public void Draw(SpriteBatch spriteBatch)
         {
+            if (monsterSummoned)
+            {
+                game.level.player.pocketMonsters[0].Draw(spriteBatch);
+            }
+            
             spriteBatch.Draw(encounterBorder, new Rectangle(330, 342, 400, 47), Color.White);
             spriteBatch.Draw(encounterSelectWindow, new Rectangle(530, 342, 200, 47), Color.White);
 

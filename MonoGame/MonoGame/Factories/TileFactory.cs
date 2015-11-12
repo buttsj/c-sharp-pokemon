@@ -11,7 +11,13 @@ namespace MonoGame
             treeTile, wallTile,
 
             // ledges
-            ledgeLeftCurve, ledgeRightCurve, ledgeLeftEnd, ledgeRightEnd, ledgeMiddle
+            ledgeLeftCurve, ledgeRightCurve, ledgeLeftEnd, ledgeRightEnd, ledgeMiddle,
+
+            // poke center stuff
+            pokeCounterLeft, pokeCounterBottom, pokeCounterMiddle, pokeCounterRight,
+
+            // exit
+            exit
         }
 
         SpriteFactory factory;
@@ -51,6 +57,26 @@ namespace MonoGame
             if (type == TileType.ledgeRightEnd)
             {
                 state = new GenericTileState(SpriteFactory.sprites.ledgeRightEnd);
+            }
+            if (type == TileType.pokeCounterBottom)
+            {
+                state = new GenericTileState(SpriteFactory.sprites.pokeCounterBottom);
+            }
+            if (type == TileType.pokeCounterMiddle)
+            {
+                state = new GenericTileState(SpriteFactory.sprites.pokeCounterMiddle);
+            }
+            if (type == TileType.pokeCounterLeft)
+            {
+                state = new GenericTileState(SpriteFactory.sprites.pokeCounterLeft);
+            }
+            if (type == TileType.pokeCounterRight)
+            {
+                state = new GenericTileState(SpriteFactory.sprites.pokeCounterRight);
+            }
+            if (type == TileType.exit)
+            {
+                state = new GenericTileState(SpriteFactory.sprites.exit);
             }
             Tile product = new Tile(state, location);
             return product;

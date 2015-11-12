@@ -95,6 +95,7 @@
     <Compile Include="Object States\Tile States\GenericTileState.cs" />
     <Compile Include="Objects\Building.cs" />
     <Compile Include="Objects\Ledge.cs" />
+    <Compile Include="Objects\MonsterBuilder.cs" />
     <Compile Include="Objects\LevelBuilder.cs" />
     <Compile Include="Object States\Player States\DownWalkingState.cs" />
     <Compile Include="Object States\Player States\DownIdleState.cs" />
@@ -193,6 +194,21 @@
     <Content Include="Content\TileSprites\Ledges\ledgeRightEnd.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\TileSprites\PokeCenter\exitTexture.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\TileSprites\PokeCenter\pokeCounterBottom.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\TileSprites\PokeCenter\pokeCounterLeft.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\TileSprites\PokeCenter\pokeCounterMiddle.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\TileSprites\PokeCenter\pokeCounterRight.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\TileSprites\treeTileSprite.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -212,6 +228,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <Content Include="Content\Levels\pokeCenterLevel.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Index\Index.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

@@ -20,7 +20,7 @@ namespace MonoGame
         {
             game.keyboard.Update();
             menu.Update(gameTime);
-            game.camera.LookAt(menu.cornerOfWindow);
+            game.camera.LookAt(menu.centerOfWindow);
         }
 
         public void Draw(SpriteBatch spriteBatch)

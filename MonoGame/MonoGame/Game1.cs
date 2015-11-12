@@ -51,7 +51,6 @@ namespace MonoGame
         
         protected override void Update(GameTime gameTime)
         {
-            //camera.Update(gameTime);
             gameState.Update(gameTime);
             base.Update(gameTime);
         }
