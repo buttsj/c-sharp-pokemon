@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System.Collections;
 
 namespace MonoGame
 {
@@ -13,6 +14,10 @@ namespace MonoGame
         public bool isRight = false;
         public bool isUp = false;
         public bool isDown = false;
+
+        public Monster[] pocketMonsters = new Monster[8];
+        public int monsterCount = 0;
+        public ArrayList storedMonsters = new ArrayList();
 
         public Player(Vector2 startingPosition)
         {
@@ -65,6 +70,11 @@ namespace MonoGame
             isUp = true;
             state.Up();
             position.Y -= 1;
+        }
+
+        public void AcquireMonster(Monster mon)
+        {
+            pocketMonsters[monsterCount] = mon;
         }
 
         public void Draw(SpriteBatch spriteBatch)
