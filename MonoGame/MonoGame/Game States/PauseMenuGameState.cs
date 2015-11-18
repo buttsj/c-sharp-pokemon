@@ -15,7 +15,7 @@ namespace MonoGame
             this.game = game;
             menu = new GUI(game);
             menu.options.Add(new KeyValuePair<ICommands, string>(new IndexMenuCommand(), "Monster Index"));
-            menu.options.Add(new KeyValuePair<ICommands, string>(new MonsterMenuCommand(), "Monsters"));
+            menu.options.Add(new KeyValuePair<ICommands, string>(new MonsterMenuCommand(game), "Monsters"));
             menu.options.Add(new KeyValuePair<ICommands, string>(new BagMenuCommand(), "Bag"));
             menu.options.Add(new KeyValuePair<ICommands, string>(new GearMenuCommand(), "Gear"));
             menu.options.Add(new KeyValuePair<ICommands, string>(new CharacterMenuCommand(), "Character"));

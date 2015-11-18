@@ -16,8 +16,8 @@ namespace MonoGame
         {
             this.viewport = viewport;
             this.game = game;
-            Zoom = 2.0f;
-            CenterScreen = new Vector2(viewport.Width / Zoom, viewport.Height / Zoom);
+            Zoom = 1.5f;
+            CenterScreen = new Vector2(viewport.Width / 2, viewport.Height / 2);
         }
 
         public void LookAt(Vector2 position)

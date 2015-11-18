@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace MonoGame
 {
@@ -10,12 +11,13 @@ namespace MonoGame
         public IPlayerState state { get; set; }
         public Vector2 position;
         public Vector2 oldPosition;
-
-        public Monster createdMonster;
-        public Monster[] pocketMonsters = new Monster[8];
+        
+        public List<Monster> pocketMonsters = new List<Monster>();
         public int monsterCount = 0;
         public ArrayList storedMonsters = new ArrayList();
         public MonsterBuilder monsterBuilder;
+
+        public bool displayMonsters = false;
 
         public Player(Vector2 startingPosition)
         {
@@ -28,8 +30,8 @@ namespace MonoGame
 
         public void CreateAMonster()
         {
-            createdMonster = monsterBuilder.monsterList["Jigglypuff"];
-            AcquireMonster(createdMonster);
+            pocketMonsters.Add(monsterBuilder.monsterList["Jigglypuff"]);
+            monsterCount++;
         }
 
         public void Idle()
@@ -59,11 +61,6 @@ namespace MonoGame
         {
             state.Up();
             position.Y -= 1;
-        }
-
-        public void AcquireMonster(Monster mon)
-        {
-            pocketMonsters[monsterCount] = mon;
         }
 
         public void Draw(SpriteBatch spriteBatch)

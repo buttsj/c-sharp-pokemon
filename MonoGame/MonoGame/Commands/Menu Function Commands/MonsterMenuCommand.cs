@@ -1,14 +1,17 @@
-﻿
-namespace MonoGame
+﻿namespace MonoGame
 {
     class MonsterMenuCommand : ICommands
     {
-        
-        public MonsterMenuCommand()
+
+        Game1 game;
+        public MonsterMenuCommand(Game1 game)
         {
+            this.game = game;
         }
+
         public void Execute()
         {
+            game.level.player.displayMonsters = true;
         }
     }
 }

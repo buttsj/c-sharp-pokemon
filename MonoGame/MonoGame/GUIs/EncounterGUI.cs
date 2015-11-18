@@ -36,7 +36,7 @@ namespace MonoGame
             options = new List<KeyValuePair<ICommands, string>>();
             options.Add(new KeyValuePair<ICommands, string>(new FightMenuCommand(), "FIGHT"));
             options.Add(new KeyValuePair<ICommands, string>(new BagMenuCommand(), "BAG"));
-            options.Add(new KeyValuePair<ICommands, string>(new MonsterMenuCommand(), "MONSTERS"));
+            options.Add(new KeyValuePair<ICommands, string>(new MonsterMenuCommand(game), "MONSTERS"));
             options.Add(new KeyValuePair<ICommands, string>(new RunAwayCommand(game), "RUN"));
             font = Game1.gameContent.Load<SpriteFont>("Fonts/guiFont");
             factory = new SpriteFactory();
