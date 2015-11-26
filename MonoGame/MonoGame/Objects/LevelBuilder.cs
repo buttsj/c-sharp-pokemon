@@ -15,11 +15,13 @@ namespace MonoGame
         GrassFactory grassFactory;
         LedgeFactory ledgeFactory;
         BuildingFactory buildingFactory;
+        EnemyFactory enemyFactory;
 
         Dictionary<string, TileFactory.TileType> tileDictionary = new Dictionary<string, TileFactory.TileType>();
         Dictionary<string, GrassFactory.GrassType> grassDictionary = new Dictionary<string, GrassFactory.GrassType>();
         Dictionary<string, LedgeFactory.LedgeType> ledgeDictionary = new Dictionary<string, LedgeFactory.LedgeType>();
         Dictionary<string, BuildingFactory.BuildingType> buildingDictionary = new Dictionary<string, BuildingFactory.BuildingType>();
+        Dictionary<string, EnemyFactory.EnemyType> enemyDictionary = new Dictionary<string, EnemyFactory.EnemyType>();
 
         public LevelBuilder(Level currentLevel)
         {
@@ -29,6 +31,7 @@ namespace MonoGame
             grassFactory = new GrassFactory();
             ledgeFactory = new LedgeFactory();
             buildingFactory = new BuildingFactory();
+            enemyFactory = new EnemyFactory();
             tileDictionary.Add("W", TileFactory.TileType.wallTile);
             tileDictionary.Add("T", TileFactory.TileType.treeTile);
             tileDictionary.Add("Z", TileFactory.TileType.pokeCounterLeft);
@@ -93,7 +96,6 @@ namespace MonoGame
                     xCoord += spacingIncrement * events;
                 }
             }
-
             return player;
         }
     }

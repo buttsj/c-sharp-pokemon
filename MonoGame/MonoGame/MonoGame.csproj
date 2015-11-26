@@ -42,6 +42,7 @@
     <Compile Include="Collision\GrassCollisionResponse.cs" />
     <Compile Include="Collision\BuildingCollisionResponse.cs" />
     <Compile Include="Collision\LedgeCollisionResponse.cs" />
+    <Compile Include="Collision\EnemyCollisionResponse.cs" />
     <Compile Include="Collision\TileCollisionResponse.cs" />
     <Compile Include="Collision\CollisionDetection.cs" />
     <Compile Include="Commands\Encounter Function Commands\FightMenuCommand.cs" />
@@ -69,6 +70,7 @@
     <Compile Include="Commands\Player Commands\PauseCommand.cs" />
     <Compile Include="Controllers\EncounterController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Factories\EnemyFactory.cs" />
     <Compile Include="Factories\BuildingFactory.cs" />
     <Compile Include="Factories\GrassFactory.cs" />
     <Compile Include="Factories\LedgeFactory.cs" />
@@ -88,6 +90,14 @@
     <Compile Include="Interfaces\ICommands.cs" />
     <Compile Include="Interfaces\IController.cs" />
     <Compile Include="Interfaces\IPlayerState.cs" />
+    <Compile Include="Object States\Enemy States\EDownIdleState.cs" />
+    <Compile Include="Object States\Enemy States\EDownWalkingState.cs" />
+    <Compile Include="Object States\Enemy States\ELeftIdleState.cs" />
+    <Compile Include="Object States\Enemy States\ELeftWalkingState.cs" />
+    <Compile Include="Object States\Enemy States\ERightIdleState.cs" />
+    <Compile Include="Object States\Enemy States\ERightWalkingState.cs" />
+    <Compile Include="Object States\Enemy States\EUpIdleState.cs" />
+    <Compile Include="Object States\Enemy States\EUpWalkingState.cs" />
     <Compile Include="Object States\Tile States\BuildingTileState.cs" />
     <Compile Include="Object States\Tile States\LedgeTileState.cs" />
     <Compile Include="Object States\Tile States\GrassTileState.cs" />
@@ -106,6 +116,7 @@
     <Compile Include="Object States\Player States\LeftIdleState.cs" />
     <Compile Include="Objects\Level.cs" />
     <Compile Include="Objects\Monster.cs" />
+    <Compile Include="Objects\Enemy.cs" />
     <Compile Include="Objects\Player.cs" />
     <Compile Include="Game States\PlayingGameState.cs" />
     <Compile Include="Objects\Grass.cs" />

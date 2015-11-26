@@ -28,7 +28,10 @@ namespace MonoGame
             pokeCounterLeft, pokeCounterBottom, pokeCounterMiddle, pokeCounterRight,
 
             // exit
-            exit
+            exit,
+
+            // enemy
+            enemyGuy
         }
 
         public SpriteFactory()
@@ -156,6 +159,11 @@ namespace MonoGame
             {
                 Texture2D pokeCounter = Game1.gameContent.Load<Texture2D>("TileSprites/PokeCenter/exitTexture");
                 return new StaticSprite(pokeCounter);
+            }
+            if (sprite == sprites.enemyGuy)
+            {
+                Texture2D enemy = Game1.gameContent.Load<Texture2D>("");
+                return new PlayerMovingSprite(enemy, 1, 1);
             }
             return null;
         }

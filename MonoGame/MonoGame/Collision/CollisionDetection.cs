@@ -15,6 +15,7 @@ namespace MonoGame
         public GrassCollisionResponse grassResponse;
         public LedgeCollisionResponse ledgeResponse;
         public BuildingCollisionResponse buildingResponse;
+        public EnemyCollisionResponse enemyResponse;
 
         public CollisionDetection(Player player, Game1 game)
         {
@@ -23,9 +24,10 @@ namespace MonoGame
             tileResponse = new TileCollisionResponse(game);
             ledgeResponse = new LedgeCollisionResponse(game);
             buildingResponse = new BuildingCollisionResponse(game);
+            enemyResponse = new EnemyCollisionResponse(game);
         }
 
-        public void Detect(Player player, List<Tile> levelTiles, List<Grass> levelGrass, List<Ledge> levelLedges, List<Building> levelBuildings)
+        public void Detect(Player player, List<Tile> levelTiles, List<Grass> levelGrass, List<Ledge> levelLedges, List<Building> levelBuildings, List<Enemy> levelEnemies)
         {
             Rectangle playerBox = player.state.GetBoundingBox(player.position);
             foreach (Tile tile in levelTiles)
@@ -63,6 +65,14 @@ namespace MonoGame
                 if (buildingBox.Intersects(playerBox))
                 {
                     buildingResponse.PlayerTileCollide(player, building);
+                }
+            }
+            foreach (Enemy enemy in levelEnemies)
+            {
+                Rectangle enemyBox = enemy.state.GetBoundingBox(enemy.position);
+                if (enemyBox.Intersects(playerBox))
+                {
+                    enemyResponse.PlayerEnemyCollide(player, enemy);
                 }
             }
         }

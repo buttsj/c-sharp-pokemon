@@ -6,7 +6,7 @@ namespace MonoGame
     public class Camera
     {
         private Game1 game;
-        private Viewport viewport;
+        public Viewport viewport;
         public Vector2 CameraPosition = new Vector2(0, 125.0f);
         public Vector2 CenterScreen { get; set; }
         public float Zoom { get; set; }
@@ -16,7 +16,7 @@ namespace MonoGame
         {
             this.viewport = viewport;
             this.game = game;
-            Zoom = 1.5f;
+            Zoom = 1.8f;
             CenterScreen = new Vector2(viewport.Width / 2, viewport.Height / 2);
         }
 
