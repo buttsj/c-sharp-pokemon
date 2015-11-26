@@ -3,9 +3,9 @@ namespace MonoGame
 {
     class EncounterUpCommand : ICommands
     {
-        EncounterGUI menu;
-        
-        public EncounterUpCommand(EncounterGUI menu)
+        UniversalGUI menu;
+
+        public EncounterUpCommand(UniversalGUI menu)
         {
             this.menu = menu;
         }

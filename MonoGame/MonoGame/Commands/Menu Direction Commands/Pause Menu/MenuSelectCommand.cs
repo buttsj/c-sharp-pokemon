@@ -3,9 +3,9 @@ namespace MonoGame
 {
     class MenuSelectCommand : ICommands
     {
-        GUI menu;
-        
-        public MenuSelectCommand(GUI menu)
+        UniversalGUI menu;
+
+        public MenuSelectCommand(UniversalGUI menu)
         {
             this.menu = menu;
         }

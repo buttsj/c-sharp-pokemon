@@ -9,7 +9,7 @@ namespace MonoGame
         private ICommands currentCommand;
         private Dictionary<Keys, ICommands> commandLibrary;
 
-        public MenuController(GUI menu)
+        public MenuController(UniversalGUI menu)
         {
             commandLibrary = new Dictionary<Keys, ICommands>();
             commandLibrary.Add(Keys.Up, new MenuUpCommand(menu));

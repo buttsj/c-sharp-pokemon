@@ -77,8 +77,7 @@
     <Compile Include="Game States\EncounterGameState.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Controllers\KeyboardController.cs" />
-    <Compile Include="GUIs\EncounterGUI.cs" />
-    <Compile Include="GUIs\GUI.cs" />
+    <Compile Include="GUIs\UniversalGUI.cs" />
     <Compile Include="Interfaces\IAnimatedSprite.cs" />
     <Compile Include="Interfaces\IGameState.cs" />
     <Compile Include="Interfaces\IBuildingState.cs" />
@@ -138,6 +137,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\GUI Sprites\menuBorder.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\GUI Sprites\monsterMenuBackground.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\PlayerSprites\DownIdlePlayer.png">

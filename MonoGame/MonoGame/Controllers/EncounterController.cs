@@ -12,7 +12,7 @@ namespace MonoGame
         private ICommands currentCommand;
         private Dictionary<Keys, ICommands> commandLibrary;
 
-        public EncounterController(EncounterGUI menu)
+        public EncounterController(UniversalGUI menu)
         {
             commandLibrary = new Dictionary<Keys, ICommands>();
             commandLibrary.Add(Keys.Up, currentCommand = new EncounterUpCommand(menu));

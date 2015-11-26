@@ -3,15 +3,15 @@ namespace MonoGame
 {
     class EncounterRightCommand : ICommands
     {
-        EncounterGUI menu;
-        
-        public EncounterRightCommand(EncounterGUI menu)
+        UniversalGUI menu;
+
+        public EncounterRightCommand(UniversalGUI menu)
         {
             this.menu = menu;
         }
         public void Execute()
         {
-            menu.Right();
+            menu.LeftRight();
         }
     }
 }
