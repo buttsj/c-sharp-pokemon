@@ -16,7 +16,7 @@ namespace MonoGame
         {
             this.viewport = viewport;
             this.game = game;
-            Zoom = 1.8f;
+            Zoom = 2f;
             CenterScreen = new Vector2(viewport.Width / 2, viewport.Height / 2);
         }
 
@@ -24,6 +24,15 @@ namespace MonoGame
         {
             CameraPosition.X = position.X - viewport.Width / 2;
             CameraPosition.Y = position.Y - viewport.Height / 2;
+        }
+
+        public bool IsInView(Rectangle obj)
+        {
+            if (new Rectangle((int)(game.level.player.position.X - 200), (int)(game.level.player.position.Y - 200), 400, 400).Intersects(obj))
+            {
+                return true;
+            }
+            return false;
         }
 
         public Matrix GetViewMatrix()

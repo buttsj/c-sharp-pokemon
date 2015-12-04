@@ -33,28 +33,45 @@ namespace MonoGame
         {
             foreach (Tile tile in levelBackground)
             {
-                tile.Draw(spriteBatch, tile.position, Color.White);
+                if (game.camera.IsInView(tile.GetBoundingBox()))
+                {
+                    tile.Draw(spriteBatch, tile.position, Color.White);
+                }
             }
-            //spriteBatch.Draw(background, new Rectangle(0, 0, 400, 400), Color.White);
             foreach (Tile tile in levelTiles)
             {
-                tile.Draw(spriteBatch, tile.position, Color.White);
+                if (game.camera.IsInView(tile.GetBoundingBox()))
+                {
+                    tile.Draw(spriteBatch, tile.position, Color.White);
+                }
             }
             foreach (Grass grass in levelGrass)
             {
-                grass.Draw(spriteBatch, grass.position, Color.White);
+                if (game.camera.IsInView(grass.GetBoundingBox()))
+                {
+                    grass.Draw(spriteBatch, grass.position, Color.White);
+                }
             }
             foreach (Ledge ledge in levelLedges)
             {
-                ledge.Draw(spriteBatch, ledge.position, Color.White);
+                if (game.camera.IsInView(ledge.GetBoundingBox()))
+                {
+                    ledge.Draw(spriteBatch, ledge.position, Color.White);
+                }
             }
             foreach (Building building in levelBuildings)
             {
-                building.Draw(spriteBatch, building.position, Color.White);
+                if (game.camera.IsInView(building.GetBoundingBox()))
+                {
+                    building.Draw(spriteBatch, building.position, Color.White);
+                }
             }
             foreach (Enemy enemy in levelEnemies)
             {
-                enemy.Draw(spriteBatch);
+                if (game.camera.IsInView(enemy.state.GetBoundingBox(enemy.position)))
+                {
+                    enemy.Draw(spriteBatch);
+                }
             }
             player.Draw(spriteBatch);
         }
@@ -63,23 +80,38 @@ namespace MonoGame
         {
             foreach (Tile tile in levelTiles)
             {
-                tile.Update(gameTime);
+                if (game.camera.IsInView(tile.GetBoundingBox()))
+                {
+                    tile.Update(gameTime);
+                }
             }
             foreach (Grass grass in levelGrass)
             {
-                grass.Update(gameTime);
+                if (game.camera.IsInView(grass.GetBoundingBox()))
+                {
+                    grass.Update(gameTime);
+                }
             }
             foreach (Ledge ledge in levelLedges)
             {
-                ledge.Update(gameTime);
+                if (game.camera.IsInView(ledge.GetBoundingBox()))
+                {
+                    ledge.Update(gameTime);
+                }
             }
             foreach (Building building in levelBuildings)
             {
-                building.Update(gameTime);
+                if (game.camera.IsInView(building.GetBoundingBox()))
+                {
+                    building.Update(gameTime);
+                }
             }
             foreach (Enemy enemy in levelEnemies)
             {
-                enemy.Update(gameTime);
+                if (game.camera.IsInView(enemy.state.GetBoundingBox(enemy.position)))
+                {
+                    enemy.Update(gameTime);
+                }
             }
             collision.Detect(player, levelTiles, levelGrass, levelLedges, levelBuildings, levelEnemies);
             player.Update(gameTime);
