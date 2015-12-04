@@ -38,6 +38,13 @@ namespace MonoGame
                     tile.Draw(spriteBatch, tile.position, Color.White);
                 }
             }
+            foreach (Ledge ledge in levelLedges)
+            {
+                if (game.camera.IsInView(ledge.GetBoundingBox()))
+                {
+                    ledge.Draw(spriteBatch, ledge.position, Color.White);
+                }
+            }
             foreach (Tile tile in levelTiles)
             {
                 if (game.camera.IsInView(tile.GetBoundingBox()))
@@ -50,13 +57,6 @@ namespace MonoGame
                 if (game.camera.IsInView(grass.GetBoundingBox()))
                 {
                     grass.Draw(spriteBatch, grass.position, Color.White);
-                }
-            }
-            foreach (Ledge ledge in levelLedges)
-            {
-                if (game.camera.IsInView(ledge.GetBoundingBox()))
-                {
-                    ledge.Draw(spriteBatch, ledge.position, Color.White);
                 }
             }
             foreach (Building building in levelBuildings)

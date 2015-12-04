@@ -57,7 +57,7 @@ namespace MonoGame
             while ((line = sr.ReadLine()) != null)
             {
                 xCoord = 0;
-
+                
                 string[] words = line.Split(',');
                 for (int i = 0; i < words.Length; i++)
                 {
