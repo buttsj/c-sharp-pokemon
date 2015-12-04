@@ -2,10 +2,11 @@
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System;
 
 namespace MonoGame
 {
-    class EncounterGameState : IGameState 
+    class EncounterGameState : IGameState
     {
         Game1 game;
         public UniversalGUI menu;
