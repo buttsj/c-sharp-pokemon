@@ -56,13 +56,17 @@ namespace MonoGame
 
             while ((line = sr.ReadLine()) != null)
             {
-                yCoord += spacingIncrement;
                 xCoord = 0;
 
                 string[] words = line.Split(',');
                 for (int i = 0; i < words.Length; i++)
                 {
                     int events = 1;
+                    if (xCoord % 32 == 0 && yCoord % 32 == 0)
+                    {
+                        Tile tile = tileFactory.builder(TileFactory.TileType.grass, new Vector2(xCoord, yCoord));
+                        level.levelBackground.Add(tile);
+                    }
                     if (words[i] == "P")
                     {
                         player = new Player(new Vector2(xCoord, yCoord));
@@ -95,6 +99,7 @@ namespace MonoGame
                     }
                     xCoord += spacingIncrement * events;
                 }
+                yCoord += spacingIncrement;
             }
             return player;
         }

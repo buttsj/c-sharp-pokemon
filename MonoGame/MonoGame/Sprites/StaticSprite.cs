@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace MonoGame
 {
-    class StaticSprite : IAnimatedSprite
+    public class StaticSprite : IAnimatedSprite
     {
         Texture2D Texture { get; set; }
         int Rows { get; set; }

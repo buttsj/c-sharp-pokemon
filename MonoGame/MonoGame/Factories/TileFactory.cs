@@ -17,7 +17,10 @@ namespace MonoGame
             pokeCounterLeft, pokeCounterBottom, pokeCounterMiddle, pokeCounterRight,
 
             // exit
-            exit
+            exit,
+
+            // background
+            grass
         }
 
         SpriteFactory factory;
@@ -77,6 +80,10 @@ namespace MonoGame
             if (type == TileType.exit)
             {
                 state = new GenericTileState(SpriteFactory.sprites.exit);
+            }
+            if (type == TileType.grass)
+            {
+                state = new GenericTileState(SpriteFactory.sprites.grassBack);
             }
             Tile product = new Tile(state, location);
             return product;

@@ -141,6 +141,12 @@
     <Content Include="Content\arrowCursor.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Backgrounds\grass.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Backgrounds\grassSquare.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\GUI Sprites\encounterSelectWindow.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

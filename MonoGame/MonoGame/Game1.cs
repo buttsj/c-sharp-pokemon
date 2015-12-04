@@ -26,7 +26,6 @@ namespace MonoGame
         private float faderAlpha;
         private float faderAlphaIncrement = 15;
 
-        
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -49,7 +48,6 @@ namespace MonoGame
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            
         }
         
         protected override void UnloadContent()

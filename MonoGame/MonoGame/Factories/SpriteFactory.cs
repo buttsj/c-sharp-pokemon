@@ -31,7 +31,10 @@ namespace MonoGame
             exit,
 
             // enemy
-            enemyGuy
+            enemyGuy,
+
+            // backgrounds
+            grassBack
         }
 
         public SpriteFactory()
@@ -164,6 +167,11 @@ namespace MonoGame
             {
                 Texture2D enemy = Game1.gameContent.Load<Texture2D>("");
                 return new PlayerMovingSprite(enemy, 1, 1);
+            }
+            if (sprite == sprites.grassBack)
+            {
+                Texture2D back = Game1.gameContent.Load<Texture2D>("Backgrounds/grassSquare");
+                return new StaticSprite(back);
             }
             return null;
         }

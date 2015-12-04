@@ -10,23 +10,32 @@ namespace MonoGame
         public Player player;
         public LevelBuilder builder;
         CollisionDetection collision;
+        public Texture2D background;
 
         public List<Tile> levelTiles = new List<Tile>();
         public List<Grass> levelGrass = new List<Grass>();
         public List<Ledge> levelLedges = new List<Ledge>();
         public List<Building> levelBuildings = new List<Building>();
         public List<Enemy> levelEnemies = new List<Enemy>();
-       
+        public List<Tile> levelBackground = new List<Tile>();
+
         public Level(string fileName, Game1 game)
         {
             this.game = game;
             builder = new LevelBuilder(this);
             player = builder.Build(fileName);
             collision = new CollisionDetection(player, game);
+
+            background = Game1.gameContent.Load<Texture2D>("Backgrounds/grass");
         }
         
         public void Draw(SpriteBatch spriteBatch)
         {
+            foreach (Tile tile in levelBackground)
+            {
+                tile.Draw(spriteBatch, tile.position, Color.White);
+            }
+            //spriteBatch.Draw(background, new Rectangle(0, 0, 400, 400), Color.White);
             foreach (Tile tile in levelTiles)
             {
                 tile.Draw(spriteBatch, tile.position, Color.White);
