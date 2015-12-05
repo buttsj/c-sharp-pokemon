@@ -145,6 +145,12 @@
     <Content Include="Content\Backgrounds\grassSquare.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Backgrounds\pokeFloorSpot.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Backgrounds\pokePlainFloor.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\EnemySprites\rivalDownIdle.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

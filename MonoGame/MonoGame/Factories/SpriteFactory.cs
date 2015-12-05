@@ -31,7 +31,7 @@ namespace MonoGame
             exit,
 
             // backgrounds
-            grassBack
+            grassBack, pokeFloorSpot, pokePlainFloor
         }
 
         public SpriteFactory()
@@ -163,6 +163,16 @@ namespace MonoGame
             if (sprite == sprites.grassBack)
             {
                 Texture2D back = Game1.gameContent.Load<Texture2D>("Backgrounds/grassSquare");
+                return new StaticSprite(back);
+            }
+            if (sprite == sprites.pokeFloorSpot)
+            {
+                Texture2D back = Game1.gameContent.Load<Texture2D>("Backgrounds/pokeFloorSpot");
+                return new StaticSprite(back);
+            }
+            if (sprite == sprites.pokePlainFloor)
+            {
+                Texture2D back = Game1.gameContent.Load<Texture2D>("Backgrounds/pokePlainFloor");
                 return new StaticSprite(back);
             }
             return null;

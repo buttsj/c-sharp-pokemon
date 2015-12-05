@@ -20,7 +20,7 @@ namespace MonoGame
             exit,
 
             // background
-            grass
+            grass, pokeFloorSpot, pokePlainFloor
         }
 
         SpriteFactory factory;
@@ -84,6 +84,14 @@ namespace MonoGame
             if (type == TileType.grass)
             {
                 state = new GenericTileState(SpriteFactory.sprites.grassBack);
+            }
+            if (type == TileType.pokeFloorSpot)
+            {
+                state = new GenericTileState(SpriteFactory.sprites.pokeFloorSpot);
+            }
+            if (type == TileType.pokePlainFloor)
+            {
+                state = new GenericTileState(SpriteFactory.sprites.pokePlainFloor);
             }
             Tile product = new Tile(state, location);
             return product;

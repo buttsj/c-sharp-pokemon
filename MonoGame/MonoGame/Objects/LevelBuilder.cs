@@ -63,6 +63,7 @@ namespace MonoGame
             // LEVEL TILES
             List<TileFactory.TileType> tileChoices = new List<TileFactory.TileType>();
             tileChoices.Add(TileFactory.TileType.grass);
+            tileChoices.Add(TileFactory.TileType.pokePlainFloor);
             int tileNumber = 0;
 
             // LEVEL DATA
