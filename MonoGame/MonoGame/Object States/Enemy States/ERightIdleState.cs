@@ -12,8 +12,7 @@ namespace MonoGame
 
         public ERightIdleState(Enemy currentEnemy)
         {
-            ISpriteFactory factory = new SpriteFactory();
-            Sprite = factory.builder(SpriteFactory.sprites.rightIdlePlayer);
+            Sprite = currentEnemy.Sprites[2];
             enemy = currentEnemy;
         }
 
@@ -34,7 +33,7 @@ namespace MonoGame
 
         public void Right()
         {
-            enemy.state = new ERightWalkingState(enemy);
+            //enemy.state = new ERightWalkingState(enemy);
         }
 
         public void Up()

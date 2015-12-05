@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -11,8 +11,7 @@ namespace MonoGame
 
         public EDownIdleState(Enemy currentEnemy)
         {
-            ISpriteFactory factory = new SpriteFactory();
-            Sprite = factory.builder(SpriteFactory.sprites.downIdlePlayer);
+            Sprite = currentEnemy.Sprites[6];
             enemy = currentEnemy;
         }
 
@@ -23,7 +22,7 @@ namespace MonoGame
 
         public void Down()
         {
-            enemy.state = new EDownWalkingState(enemy);
+            //enemy.state = new EDownWalkingState(enemy);
         }
         
         public void Left()

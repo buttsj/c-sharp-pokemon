@@ -19,6 +19,7 @@ namespace MonoGame
         // important items
         public Level level;
         public Camera camera;
+        public Color background;
 
         private static Game1 sInstance = new Game1();
         public bool isPaused = false, isTitle = true, transition = false;
@@ -42,6 +43,7 @@ namespace MonoGame
             faderTexture = new Texture2D(GraphicsDevice, 1, 1);
             var colors = new Color[] { Color.White };
             faderTexture.SetData<Color>(colors);
+            background = Color.Black;
             base.Initialize();
         }
         
@@ -62,7 +64,7 @@ namespace MonoGame
         
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.WhiteSmoke);
+            GraphicsDevice.Clear(background);
 
             spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, camera.GetViewMatrix());
             if (!transition)

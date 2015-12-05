@@ -11,8 +11,7 @@ namespace MonoGame
 
         public EUpIdleState(Enemy currentEnemy)
         {
-            ISpriteFactory factory = new SpriteFactory();
-            Sprite = factory.builder(SpriteFactory.sprites.upIdlePlayer);
+            Sprite = currentEnemy.Sprites[4];
             enemy = currentEnemy;
         }
         public Rectangle GetBoundingBox(Vector2 location)
@@ -37,7 +36,7 @@ namespace MonoGame
 
         public void Up()
         {
-            enemy.state = new EUpWalkingState(enemy);
+            //enemy.state = new EUpWalkingState(enemy);
         }
 
         public void Idle()

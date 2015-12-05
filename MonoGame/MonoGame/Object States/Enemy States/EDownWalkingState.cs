@@ -11,8 +11,7 @@ namespace MonoGame
 
         public EDownWalkingState(Enemy currentEnemy)
         {
-            ISpriteFactory factory = new SpriteFactory();
-            Sprite = factory.builder(SpriteFactory.sprites.downWalkingPlayer);
+            Sprite = currentEnemy.Sprites[7];
             enemy = currentEnemy;
         }
 

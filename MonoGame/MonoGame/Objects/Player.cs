@@ -7,6 +7,8 @@ namespace MonoGame
 {
     public class Player
     {
+        private enum availState { up, down, left, right }
+        private Player.availState curState;
 
         public IPlayerState state { get; set; }
         public Vector2 position;
@@ -18,9 +20,13 @@ namespace MonoGame
         public MonsterBuilder monsterBuilder;
 
         public bool displayMonsters = false;
+        public bool interactable = false;
+
+        public Enemy interactEnemy;
 
         public Player(Vector2 startingPosition)
         {
+            curState = availState.right;
             state = new RightIdleState(this);
             position = startingPosition;
             oldPosition = startingPosition;
@@ -41,26 +47,60 @@ namespace MonoGame
 
         public void Down()
         {
+            curState = availState.down;
             state.Down();
             position.Y += 1;
     }
 
         public void Left()
         {
+            curState = availState.left;
             state.Left();
             position.X -= 1;
         }
 
         public void Right()
         {
+            curState = availState.right;
             state.Right();
             position.X += 1;
         }
 
         public void Up()
         {
+            curState = availState.up;
             state.Up();
             position.Y -= 1;
+        }
+
+        public void Interact()
+        {
+            if (interactable)
+            {
+                //interactEnemy.talkedTo = true;
+                interactable = false;
+                if (curState == availState.up)
+                {
+                    interactEnemy.state.Down();
+                }
+                else if (curState == availState.down)
+                {
+                    interactEnemy.state.Up();
+                }
+                else if (curState == availState.left)
+                {
+                    interactEnemy.state.Right();
+                }
+                else
+                {
+                    interactEnemy.state.Left();
+                }
+            }
+            else
+            {
+                interactable = false;
+                interactEnemy = null;
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch)

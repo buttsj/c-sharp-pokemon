@@ -23,6 +23,7 @@ namespace MonoGame
             commandLibrary.Add(Keys.A, currentCommand = new LeftCommand(player));
             commandLibrary.Add(Keys.S, currentCommand = new DownCommand(player));
             commandLibrary.Add(Keys.D, currentCommand = new RightCommand(player));
+            commandLibrary.Add(Keys.Space, currentCommand = new InteractCommand(player));
             commandLibrary.Add(Keys.Enter, currentCommand = new PauseCommand(game));
         }
 

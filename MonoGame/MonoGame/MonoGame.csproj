@@ -68,6 +68,7 @@
     <Compile Include="Commands\Player Commands\DownCommand.cs" />
     <Compile Include="Commands\Menu Direction Commands\Pause Menu\MenuUpCommand.cs" />
     <Compile Include="Commands\Player Commands\PauseCommand.cs" />
+    <Compile Include="Commands\Player Commands\InteractCommand.cs" />
     <Compile Include="Controllers\EncounterController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Factories\EnemyFactory.cs" />
@@ -141,10 +142,31 @@
     <Content Include="Content\arrowCursor.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Backgrounds\grass.png">
+    <Content Include="Content\Backgrounds\grassSquare.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\Backgrounds\grassSquare.png">
+    <Content Include="Content\EnemySprites\rivalDownIdle.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\EnemySprites\rivalDownWalking.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\EnemySprites\rivalLeftIdle.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\EnemySprites\rivalLeftWalking.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\EnemySprites\rivalRightIdle.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\EnemySprites\rivalRightWalking.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\EnemySprites\rivalUpIdle.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\EnemySprites\rivalUpWalking.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\GUI Sprites\encounterSelectWindow.png">

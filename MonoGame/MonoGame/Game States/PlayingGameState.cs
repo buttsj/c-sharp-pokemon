@@ -10,6 +10,7 @@ namespace MonoGame
         public PlayingGameState(Game1 game)
         {
             this.game = game;
+            game.background = Color.Black;
             game.keyboard = new KeyboardController(game.level.player, game);
         }
 

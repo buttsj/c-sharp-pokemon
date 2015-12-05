@@ -21,6 +21,7 @@ namespace MonoGame
         public EncounterGameState(Game1 game)
         {
             this.game = game;
+            game.background = Color.White; 
             menu = new UniversalGUI(game);
             menu.columnOne.Add(new KeyValuePair<ICommands, string>(new FightMenuCommand(), "FIGHT"));
             menu.columnOne.Add(new KeyValuePair<ICommands, string>(new MonsterMenuCommand(game), "MONSTERS"));

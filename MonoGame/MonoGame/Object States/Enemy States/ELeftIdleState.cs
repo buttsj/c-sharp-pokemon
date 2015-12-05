@@ -11,8 +11,7 @@ namespace MonoGame
 
         public ELeftIdleState(Enemy currentEnemy)
         {
-            ISpriteFactory factory = new SpriteFactory();
-            Sprite = factory.builder(SpriteFactory.sprites.leftIdlePlayer);
+            Sprite = currentEnemy.Sprites[0];
             enemy = currentEnemy;
         }
 
@@ -28,7 +27,7 @@ namespace MonoGame
         
         public void Left()
         {
-            enemy.state = new ELeftWalkingState(enemy);
+            //enemy.state = new ELeftWalkingState(enemy);
         }
 
         public void Right()

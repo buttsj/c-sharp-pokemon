@@ -1,13 +1,13 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System.Collections;
 using System.Collections.Generic;
+using System;
 
 namespace MonoGame
 {
     public class Enemy
     {
-
+        public List<IAnimatedSprite> Sprites { get; set; }
         public IPlayerState state { get; set; }
         public Vector2 position;
         public Vector2 oldPosition;
@@ -17,10 +17,11 @@ namespace MonoGame
         public MonsterBuilder monsterBuilder;
 
         public bool displayMonsters = false;
+        public bool talkedTo = false;
 
         public Enemy(Vector2 startingPosition)
         {
-            state = new ERightIdleState(this);
+            Sprites = new List<IAnimatedSprite>();
             position = startingPosition;
             oldPosition = startingPosition;
             monsterBuilder = new MonsterBuilder("Index/Index.csv");
@@ -69,7 +70,32 @@ namespace MonoGame
 
         public void Update(GameTime gameTime)
         {
-            state.Update(gameTime);
+            if (!talkedTo)
+            {
+                Random rnd = new Random();
+                int value = RandomExtension.NextInt(rnd, 0, 100);
+                if (value == 0)
+                {
+                    value = RandomExtension.NextInt(rnd, 0, 3);
+                    if (value == 0)
+                    {
+                        state.Up();
+                    }
+                    else if (value == 1)
+                    {
+                        state.Down();
+                    }
+                    else if (value == 2)
+                    {
+                        state.Left();
+                    }
+                    else
+                    {
+                        state.Right();
+                    }
+                }
+                state.Update(gameTime);
+            }
         }
     }
 }

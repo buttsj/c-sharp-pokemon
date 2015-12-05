@@ -25,8 +25,6 @@ namespace MonoGame
             builder = new LevelBuilder(this);
             player = builder.Build(fileName);
             collision = new CollisionDetection(player, game);
-
-            background = Game1.gameContent.Load<Texture2D>("Backgrounds/grass");
         }
         
         public void Draw(SpriteBatch spriteBatch)

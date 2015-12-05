@@ -30,9 +30,6 @@ namespace MonoGame
             // exit
             exit,
 
-            // enemy
-            enemyGuy,
-
             // backgrounds
             grassBack
         }
@@ -162,11 +159,6 @@ namespace MonoGame
             {
                 Texture2D pokeCounter = Game1.gameContent.Load<Texture2D>("TileSprites/PokeCenter/exitTexture");
                 return new StaticSprite(pokeCounter);
-            }
-            if (sprite == sprites.enemyGuy)
-            {
-                Texture2D enemy = Game1.gameContent.Load<Texture2D>("");
-                return new PlayerMovingSprite(enemy, 1, 1);
             }
             if (sprite == sprites.grassBack)
             {

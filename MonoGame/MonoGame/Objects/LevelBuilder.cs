@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using System.IO;
+using System;
+using System.Diagnostics;
 
 namespace MonoGame
 {
@@ -45,6 +47,7 @@ namespace MonoGame
             ledgeDictionary.Add("L", LedgeFactory.LedgeType.ledgeLeftEnd);
             buildingDictionary.Add("I", BuildingFactory.BuildingType.pokeCenterLeft);
             buildingDictionary.Add("O", BuildingFactory.BuildingType.pokeCenterRight);
+            enemyDictionary.Add("E", EnemyFactory.EnemyType.rival);
         }
 
         public Player Build(string fileName)
@@ -54,17 +57,45 @@ namespace MonoGame
             sr = File.OpenText(Game1.GetInstance().Content.RootDirectory + "\\" + fileName);
             string line;
 
+            int currDest = 0;
+            List<string> destinations = new List<string>();
+
+            // LEVEL TILES
+            List<TileFactory.TileType> tileChoices = new List<TileFactory.TileType>();
+            tileChoices.Add(TileFactory.TileType.grass);
+            int tileNumber = 0;
+
+            // LEVEL DATA
+            line = sr.ReadLine();
+            string[] initialWords = line.Split(',');
+            try
+            {
+                tileNumber = Int32.Parse(initialWords[0]);
+            }
+            catch (FormatException e)
+            {
+                Debug.WriteLine(e);
+            }
+            for (int i = 0; i < initialWords.Length; i++)
+            {
+                if (initialWords[i].Contains("Levels"))
+                {
+                    destinations.Add(initialWords[i]);
+                }
+            }
+
+            // MAIN LEVEL
             while ((line = sr.ReadLine()) != null)
             {
                 xCoord = 0;
-                
                 string[] words = line.Split(',');
+                
                 for (int i = 0; i < words.Length; i++)
                 {
                     int events = 1;
                     if (xCoord % 32 == 0 && yCoord % 32 == 0)
                     {
-                        Tile tile = tileFactory.builder(TileFactory.TileType.grass, new Vector2(xCoord, yCoord));
+                        Tile tile = tileFactory.builder(tileChoices[tileNumber], new Vector2(xCoord, yCoord));
                         level.levelBackground.Add(tile);
                     }
                     if (words[i] == "P")
@@ -92,10 +123,16 @@ namespace MonoGame
                         if (words[i] == "I")
                         {
                             building.isDoor = true;
-                            building.destination = "Levels/pokeCenterLevel.csv";
+                            building.destination = destinations[currDest];
                             building.source = fileName;
+                            currDest++;
                         }
                         level.levelBuildings.Add(building);
+                    }
+                    if (enemyDictionary.ContainsKey(words[i]))
+                    {
+                        Enemy enemy = enemyFactory.builder(enemyDictionary[words[i]], new Vector2(xCoord, yCoord));
+                        level.levelEnemies.Add(enemy);
                     }
                     xCoord += spacingIncrement * events;
                 }
