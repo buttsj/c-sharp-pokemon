@@ -151,28 +151,52 @@
     <Content Include="Content\Backgrounds\pokePlainFloor.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\EnemySprites\rivalDownIdle.png">
+    <Content Include="Content\EnemySprites\Girl\girlDownIdle.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\EnemySprites\rivalDownWalking.png">
+    <Content Include="Content\EnemySprites\Girl\girlDownMoving.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\EnemySprites\rivalLeftIdle.png">
+    <Content Include="Content\EnemySprites\Girl\girlLeftIdle.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\EnemySprites\rivalLeftWalking.png">
+    <Content Include="Content\EnemySprites\Girl\girlLeftMoving.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\EnemySprites\rivalRightIdle.png">
+    <Content Include="Content\EnemySprites\Girl\girlRightIdle.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\EnemySprites\rivalRightWalking.png">
+    <Content Include="Content\EnemySprites\Girl\girlRightMoving.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\EnemySprites\rivalUpIdle.png">
+    <Content Include="Content\EnemySprites\Girl\girlUpIdle.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\EnemySprites\rivalUpWalking.png">
+    <Content Include="Content\EnemySprites\Girl\girlUpMoving.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\EnemySprites\Rival\rivalDownIdle.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\EnemySprites\Rival\rivalDownWalking.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\EnemySprites\Rival\rivalLeftIdle.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\EnemySprites\Rival\rivalLeftWalking.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\EnemySprites\Rival\rivalRightIdle.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\EnemySprites\Rival\rivalRightWalking.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\EnemySprites\Rival\rivalUpIdle.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\EnemySprites\Rival\rivalUpWalking.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\GUI Sprites\encounterSelectWindow.png">
@@ -190,25 +214,25 @@
     <Content Include="Content\PlayerSprites\DownIdlePlayer.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\PlayerSprites\DownMovingPlayer.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Content\PlayerSprites\LeftIdlePlayer.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\PlayerSprites\RightMovingPlayer.png">
+    <Content Include="Content\PlayerSprites\playerDownMoving.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\PlayerSprites\LeftMovingPlayer.png">
+    <Content Include="Content\PlayerSprites\playerLeftMoving.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\PlayerSprites\playerRightMoving.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\PlayerSprites\playerUpMoving.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\PlayerSprites\RightIdlePlayer.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\PlayerSprites\UpIdlePlayer.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\PlayerSprites\UpMovingPlayer.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\TileSprites\Buildings\japaneseHomeLeft.png">
@@ -244,16 +268,28 @@
     <Content Include="Content\TileSprites\PokeCenter\exitTexture.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\TileSprites\PokeCenter\pokeCounterBottom.png">
+    <Content Include="Content\TileSprites\PokeCenter\pokeEndCornerLeft.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\TileSprites\PokeCenter\pokeCounterLeft.png">
+    <Content Include="Content\TileSprites\PokeCenter\pokeEndCornerRight.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\TileSprites\PokeCenter\pokeCounterMiddle.png">
+    <Content Include="Content\TileSprites\PokeCenter\pokeEndCounterLeft.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\TileSprites\PokeCenter\pokeCounterRight.png">
+    <Content Include="Content\TileSprites\PokeCenter\pokeEndCounterRight.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\TileSprites\PokeCenter\pokeHorizontal.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\TileSprites\PokeCenter\pokeMiddleSection.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\TileSprites\PokeCenter\pokeVerticalLeft.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\TileSprites\PokeCenter\pokeVerticalRight.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\TileSprites\treeTileSprite.png">

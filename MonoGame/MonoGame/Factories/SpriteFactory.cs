@@ -25,7 +25,7 @@ namespace MonoGame
             pokeCenterLeft, pokeCenterRight, japBuildingLeft, japBuildingRight,
 
             // poke center stuff
-            pokeCounterLeft, pokeCounterBottom, pokeCounterMiddle, pokeCounterRight,
+            pokeEndCornerLeft, pokeEndCornerRight, pokeEndCounterLeft, pokeEndCounterRight, pokeHorizontal, pokeMiddleSection, pokeVerticalLeft, pokeVerticalRight,
 
             // exit
             exit,
@@ -47,8 +47,8 @@ namespace MonoGame
             }
             if (sprite == sprites.downWalkingPlayer)
             {
-                Texture2D downWalkingTexture = Game1.gameContent.Load<Texture2D>("PlayerSprites/DownMovingPlayer");
-                return new PlayerMovingSprite(downWalkingTexture, 1, 3);
+                Texture2D downWalkingTexture = Game1.gameContent.Load<Texture2D>("PlayerSprites/playerDownMoving");
+                return new PlayerMovingSprite(downWalkingTexture, 1, 4);
             }
             if (sprite == sprites.leftIdlePlayer)
             {
@@ -57,8 +57,8 @@ namespace MonoGame
             }
             if (sprite == sprites.leftWalkingPlayer)
             {
-                Texture2D leftWalkingTexture = Game1.gameContent.Load<Texture2D>("PlayerSprites/LeftMovingPlayer");
-                return new PlayerMovingSprite(leftWalkingTexture, 1, 3);
+                Texture2D leftWalkingTexture = Game1.gameContent.Load<Texture2D>("PlayerSprites/playerLeftMoving");
+                return new PlayerMovingSprite(leftWalkingTexture, 1, 4);
             }
             if (sprite == sprites.rightIdlePlayer)
             {
@@ -67,8 +67,8 @@ namespace MonoGame
             }
             if (sprite == sprites.rightWalkingPlayer)
             {
-                Texture2D rightWalkingTexture = Game1.gameContent.Load<Texture2D>("PlayerSprites/RightMovingPlayer");
-                return new PlayerMovingSprite(rightWalkingTexture, 1, 3);
+                Texture2D rightWalkingTexture = Game1.gameContent.Load<Texture2D>("PlayerSprites/playerRightMoving");
+                return new PlayerMovingSprite(rightWalkingTexture, 1, 4);
             }
             if (sprite == sprites.upIdlePlayer)
             {
@@ -77,8 +77,8 @@ namespace MonoGame
             }
             if (sprite == sprites.upWalkingPlayer)
             {
-                Texture2D upWalkingTexture = Game1.gameContent.Load<Texture2D>("PlayerSprites/UpMovingPlayer");
-                return new PlayerMovingSprite(upWalkingTexture, 1, 3);
+                Texture2D upWalkingTexture = Game1.gameContent.Load<Texture2D>("PlayerSprites/playerUpMoving");
+                return new PlayerMovingSprite(upWalkingTexture, 1, 4);
             }
             if (sprite == sprites.wallTile)
             {
@@ -135,24 +135,44 @@ namespace MonoGame
                 Texture2D pokeRTexture = Game1.gameContent.Load<Texture2D>("TileSprites/Buildings/pokeCenterRight");
                 return new StaticSprite(pokeRTexture);
             }
-            if (sprite == sprites.pokeCounterLeft)
+            if (sprite == sprites.pokeEndCornerLeft)
             {
-                Texture2D pokeCounter = Game1.gameContent.Load<Texture2D>("TileSprites/PokeCenter/pokeCounterLeft");
+                Texture2D pokeCounter = Game1.gameContent.Load<Texture2D>("TileSprites/PokeCenter/pokeEndCornerLeft");
                 return new StaticSprite(pokeCounter);
             }
-            if (sprite == sprites.pokeCounterMiddle)
+            if (sprite == sprites.pokeEndCornerRight)
             {
-                Texture2D pokeCounter = Game1.gameContent.Load<Texture2D>("TileSprites/PokeCenter/pokeCounterMiddle");
+                Texture2D pokeCounter = Game1.gameContent.Load<Texture2D>("TileSprites/PokeCenter/pokeEndCornerRight");
                 return new StaticSprite(pokeCounter);
             }
-            if (sprite == sprites.pokeCounterBottom)
+            if (sprite == sprites.pokeEndCounterLeft)
             {
-                Texture2D pokeCounter = Game1.gameContent.Load<Texture2D>("TileSprites/PokeCenter/pokeCounterBottom");
+                Texture2D pokeCounter = Game1.gameContent.Load<Texture2D>("TileSprites/PokeCenter/pokeEndCounterLeft");
                 return new StaticSprite(pokeCounter);
             }
-            if (sprite == sprites.pokeCounterRight)
+            if (sprite == sprites.pokeEndCounterRight)
             {
-                Texture2D pokeCounter = Game1.gameContent.Load<Texture2D>("TileSprites/PokeCenter/pokeCounterRight");
+                Texture2D pokeCounter = Game1.gameContent.Load<Texture2D>("TileSprites/PokeCenter/pokeEndCounterRight");
+                return new StaticSprite(pokeCounter);
+            }
+            if (sprite == sprites.pokeHorizontal)
+            {
+                Texture2D pokeCounter = Game1.gameContent.Load<Texture2D>("TileSprites/PokeCenter/pokeHorizontal");
+                return new StaticSprite(pokeCounter);
+            }
+            if (sprite == sprites.pokeMiddleSection)
+            {
+                Texture2D pokeCounter = Game1.gameContent.Load<Texture2D>("TileSprites/PokeCenter/pokeMiddleSection");
+                return new StaticSprite(pokeCounter);
+            }
+            if (sprite == sprites.pokeVerticalLeft)
+            {
+                Texture2D pokeCounter = Game1.gameContent.Load<Texture2D>("TileSprites/PokeCenter/pokeVerticalLeft");
+                return new StaticSprite(pokeCounter);
+            }
+            if (sprite == sprites.pokeVerticalRight)
+            {
+                Texture2D pokeCounter = Game1.gameContent.Load<Texture2D>("TileSprites/PokeCenter/pokeVerticalRight");
                 return new StaticSprite(pokeCounter);
             }
             if (sprite == sprites.exit)

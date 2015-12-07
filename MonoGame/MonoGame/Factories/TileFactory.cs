@@ -14,7 +14,7 @@ namespace MonoGame
             ledgeLeftCurve, ledgeRightCurve, ledgeLeftEnd, ledgeRightEnd, ledgeMiddle,
 
             // poke center stuff
-            pokeCounterLeft, pokeCounterBottom, pokeCounterMiddle, pokeCounterRight,
+            pokeEndCornerLeft, pokeEndCornerRight, pokeEndCounterLeft, pokeEndCounterRight, pokeHorizontal, pokeMiddleSection, pokeVerticalLeft, pokeVerticalRight,
 
             // exit
             exit,
@@ -61,21 +61,37 @@ namespace MonoGame
             {
                 state = new GenericTileState(SpriteFactory.sprites.ledgeRightEnd);
             }
-            if (type == TileType.pokeCounterBottom)
+            if (type == TileType.pokeEndCornerLeft)
             {
-                state = new GenericTileState(SpriteFactory.sprites.pokeCounterBottom);
+                state = new GenericTileState(SpriteFactory.sprites.pokeEndCornerLeft);
             }
-            if (type == TileType.pokeCounterMiddle)
+            if (type == TileType.pokeEndCornerRight)
             {
-                state = new GenericTileState(SpriteFactory.sprites.pokeCounterMiddle);
+                state = new GenericTileState(SpriteFactory.sprites.pokeEndCornerRight);
             }
-            if (type == TileType.pokeCounterLeft)
+            if (type == TileType.pokeEndCounterLeft)
             {
-                state = new GenericTileState(SpriteFactory.sprites.pokeCounterLeft);
+                state = new GenericTileState(SpriteFactory.sprites.pokeEndCounterLeft);
             }
-            if (type == TileType.pokeCounterRight)
+            if (type == TileType.pokeEndCounterRight)
             {
-                state = new GenericTileState(SpriteFactory.sprites.pokeCounterRight);
+                state = new GenericTileState(SpriteFactory.sprites.pokeEndCounterRight);
+            }
+            if (type == TileType.pokeHorizontal)
+            {
+                state = new GenericTileState(SpriteFactory.sprites.pokeHorizontal);
+            }
+            if (type == TileType.pokeMiddleSection)
+            {
+                state = new GenericTileState(SpriteFactory.sprites.pokeMiddleSection);
+            }
+            if (type == TileType.pokeVerticalLeft)
+            {
+                state = new GenericTileState(SpriteFactory.sprites.pokeVerticalLeft);
+            }
+            if (type == TileType.pokeVerticalRight)
+            {
+                state = new GenericTileState(SpriteFactory.sprites.pokeVerticalRight);
             }
             if (type == TileType.exit)
             {

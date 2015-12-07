@@ -36,10 +36,16 @@ namespace MonoGame
             enemyFactory = new EnemyFactory();
             tileDictionary.Add("W", TileFactory.TileType.wallTile);
             tileDictionary.Add("T", TileFactory.TileType.treeTile);
-            tileDictionary.Add("Z", TileFactory.TileType.pokeCounterLeft);
-            tileDictionary.Add("X", TileFactory.TileType.pokeCounterBottom);
-            tileDictionary.Add("C", TileFactory.TileType.pokeCounterMiddle);
-            tileDictionary.Add("V", TileFactory.TileType.pokeCounterRight);
+
+            tileDictionary.Add("3", TileFactory.TileType.pokeEndCornerLeft);
+            tileDictionary.Add("6", TileFactory.TileType.pokeEndCornerRight);
+            tileDictionary.Add("1", TileFactory.TileType.pokeEndCounterLeft);
+            tileDictionary.Add("8", TileFactory.TileType.pokeEndCounterRight);
+            tileDictionary.Add("4", TileFactory.TileType.pokeHorizontal);
+            tileDictionary.Add("5", TileFactory.TileType.pokeMiddleSection);
+            tileDictionary.Add("2", TileFactory.TileType.pokeVerticalLeft);
+            tileDictionary.Add("7", TileFactory.TileType.pokeVerticalRight);
+
             tileDictionary.Add("B", TileFactory.TileType.exit);
             grassDictionary.Add("G", GrassFactory.GrassType.shortGrass);
             ledgeDictionary.Add("M", LedgeFactory.LedgeType.ledgeMiddle);
@@ -48,6 +54,7 @@ namespace MonoGame
             buildingDictionary.Add("I", BuildingFactory.BuildingType.pokeCenterLeft);
             buildingDictionary.Add("O", BuildingFactory.BuildingType.pokeCenterRight);
             enemyDictionary.Add("E", EnemyFactory.EnemyType.rival);
+            enemyDictionary.Add("Q", EnemyFactory.EnemyType.girl);
         }
 
         public Player Build(string fileName)
