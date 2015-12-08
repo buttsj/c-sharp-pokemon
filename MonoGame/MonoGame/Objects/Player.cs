@@ -23,6 +23,7 @@ namespace MonoGame
         public bool interactable = false;
 
         public Enemy interactEnemy;
+        public bool talkedTo = false;
 
         public Player(Vector2 startingPosition)
         {
@@ -77,7 +78,7 @@ namespace MonoGame
         {
             if (interactable)
             {
-                //interactEnemy.talkedTo = true;
+                interactEnemy.talkedTo = true;
                 interactable = false;
                 if (curState == availState.up)
                 {

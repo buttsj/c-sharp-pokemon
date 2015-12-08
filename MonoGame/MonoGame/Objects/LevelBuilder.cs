@@ -34,9 +34,11 @@ namespace MonoGame
             ledgeFactory = new LedgeFactory();
             buildingFactory = new BuildingFactory();
             enemyFactory = new EnemyFactory();
-            tileDictionary.Add("W", TileFactory.TileType.wallTile);
-            tileDictionary.Add("T", TileFactory.TileType.treeTile);
 
+            // trees
+            tileDictionary.Add("W", TileFactory.TileType.treeTile);
+
+            // pokecenter parts
             tileDictionary.Add("3", TileFactory.TileType.pokeEndCornerLeft);
             tileDictionary.Add("6", TileFactory.TileType.pokeEndCornerRight);
             tileDictionary.Add("1", TileFactory.TileType.pokeEndCounterLeft);
@@ -46,13 +48,22 @@ namespace MonoGame
             tileDictionary.Add("2", TileFactory.TileType.pokeVerticalLeft);
             tileDictionary.Add("7", TileFactory.TileType.pokeVerticalRight);
 
+            // exit tile
             tileDictionary.Add("B", TileFactory.TileType.exit);
+
+            // grass
             grassDictionary.Add("G", GrassFactory.GrassType.shortGrass);
+
+            // ledges
             ledgeDictionary.Add("M", LedgeFactory.LedgeType.ledgeMiddle);
             ledgeDictionary.Add("R", LedgeFactory.LedgeType.ledgeRightEnd);
             ledgeDictionary.Add("L", LedgeFactory.LedgeType.ledgeLeftEnd);
+
+            // buildings
             buildingDictionary.Add("I", BuildingFactory.BuildingType.pokeCenterLeft);
             buildingDictionary.Add("O", BuildingFactory.BuildingType.pokeCenterRight);
+
+            // npcs
             enemyDictionary.Add("E", EnemyFactory.EnemyType.rival);
             enemyDictionary.Add("Q", EnemyFactory.EnemyType.girl);
         }
@@ -63,7 +74,9 @@ namespace MonoGame
             StreamReader sr;
             sr = File.OpenText(Game1.GetInstance().Content.RootDirectory + "\\" + fileName);
             string line;
+            int reference = 0;
 
+            // LEVEL DESTINATIONS
             int currDest = 0;
             List<string> destinations = new List<string>();
 
@@ -100,7 +113,19 @@ namespace MonoGame
                 
                 for (int i = 0; i < words.Length; i++)
                 {
-                    int events = 1;
+                    if (words[i].Length > 1)
+                    {
+                        try
+                        {
+                            string tmp = words[i].Remove(1);
+                            reference = Int32.Parse(words[i][1].ToString());
+                            words[i] = tmp;
+                        }
+                        catch
+                        {
+                            // exception here
+                        }
+                    }
                     if (xCoord % 32 == 0 && yCoord % 32 == 0)
                     {
                         Tile tile = tileFactory.builder(tileChoices[tileNumber], new Vector2(xCoord, yCoord));
@@ -142,7 +167,7 @@ namespace MonoGame
                         Enemy enemy = enemyFactory.builder(enemyDictionary[words[i]], new Vector2(xCoord, yCoord));
                         level.levelEnemies.Add(enemy);
                     }
-                    xCoord += spacingIncrement * events;
+                    xCoord += spacingIncrement;
                 }
                 yCoord += spacingIncrement;
             }

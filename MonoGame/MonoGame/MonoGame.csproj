@@ -80,6 +80,7 @@
     <Compile Include="Game States\EncounterGameState.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Controllers\KeyboardController.cs" />
+    <Compile Include="GUIs\Textbox.cs" />
     <Compile Include="GUIs\UniversalGUI.cs" />
     <Compile Include="Interfaces\IAnimatedSprite.cs" />
     <Compile Include="Interfaces\IGameState.cs" />
@@ -307,6 +308,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Content\Fonts\textBoxFont.spritefont">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Content\Fonts\guiFont.spritefont">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -314,6 +318,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Index\Index.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Index\Text.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

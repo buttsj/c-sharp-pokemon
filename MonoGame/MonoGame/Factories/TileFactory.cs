@@ -8,7 +8,7 @@ namespace MonoGame
         public enum TileType
         {
             // tiles
-            treeTile, wallTile,
+            treeTile,
 
             // ledges
             ledgeLeftCurve, ledgeRightCurve, ledgeLeftEnd, ledgeRightEnd, ledgeMiddle,
@@ -36,10 +36,6 @@ namespace MonoGame
             if (type == TileType.treeTile)
             {
                 state = new GenericTileState(SpriteFactory.sprites.treeTile);
-            }
-            if (type == TileType.wallTile)
-            {
-                state = new GenericTileState(SpriteFactory.sprites.wallTile);
             }
             if (type == TileType.ledgeLeftCurve)
             {

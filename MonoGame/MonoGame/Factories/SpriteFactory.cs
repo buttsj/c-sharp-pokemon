@@ -10,7 +10,7 @@ namespace MonoGame
             leftIdlePlayer, leftWalkingPlayer, rightIdlePlayer, rightWalkingPlayer, upIdlePlayer, upWalkingPlayer, downIdlePlayer, downWalkingPlayer,
 
             // tiles
-            treeTile, wallTile,
+            treeTile,
 
             // gui
             arrow,
@@ -79,11 +79,6 @@ namespace MonoGame
             {
                 Texture2D upWalkingTexture = Game1.gameContent.Load<Texture2D>("PlayerSprites/playerUpMoving");
                 return new PlayerMovingSprite(upWalkingTexture, 1, 4);
-            }
-            if (sprite == sprites.wallTile)
-            {
-                Texture2D wallTileTexture = Game1.gameContent.Load<Texture2D>("TileSprites/treeTileSprite");
-                return new StaticSprite(wallTileTexture);
             }
             if (sprite == sprites.treeTile)
             {

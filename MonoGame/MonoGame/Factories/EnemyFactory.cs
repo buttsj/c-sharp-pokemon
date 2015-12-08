@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace MonoGame
 {
@@ -37,6 +37,7 @@ namespace MonoGame
                 product.Sprites.Add(new PlayerMovingSprite(enemyUpWalking, 1, 3));
                 product.Sprites.Add(new StaticSprite(enemyDownIdle));
                 product.Sprites.Add(new PlayerMovingSprite(enemyDownWalking, 1, 3));
+                product.CreateTextbox("Hey man what's goin' on hommie?");
             }
             if (type == EnemyType.girl)
             {
@@ -56,6 +57,7 @@ namespace MonoGame
                 product.Sprites.Add(new PlayerMovingSprite(enemyUpWalking, 1, 4));
                 product.Sprites.Add(new StaticSprite(enemyDownIdle));
                 product.Sprites.Add(new PlayerMovingSprite(enemyDownWalking, 1, 4));
+                product.CreateTextbox("Hey friend!");
             }
             product.state = new EDownIdleState(product);
             return product;

@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using System;
+using System.Diagnostics;
 
 namespace MonoGame
 {
@@ -19,6 +20,8 @@ namespace MonoGame
         public bool displayMonsters = false;
         public bool talkedTo = false;
 
+        public Textbox textBox;
+
         public Enemy(Vector2 startingPosition)
         {
             Sprites = new List<IAnimatedSprite>();
@@ -26,6 +29,11 @@ namespace MonoGame
             oldPosition = startingPosition;
             monsterBuilder = new MonsterBuilder("Index/Index.csv");
             CreateAMonster();
+        }
+
+        public void CreateTextbox(string text)
+        {
+            textBox = new Textbox(text);
         }
 
         public void CreateAMonster()
@@ -66,6 +74,10 @@ namespace MonoGame
         public void Draw(SpriteBatch spriteBatch)
         {
             state.Draw(spriteBatch, position, Color.White);
+            if (talkedTo)
+            {
+                textBox.Draw(spriteBatch, position);
+            }
         }
 
         public void Update(GameTime gameTime)
@@ -95,6 +107,14 @@ namespace MonoGame
                     }
                 }
                 state.Update(gameTime);
+            }
+            else
+            {
+                textBox.Update(gameTime);
+                if (textBox.complete == true)
+                {
+                    talkedTo = false;
+                }
             }
         }
     }
