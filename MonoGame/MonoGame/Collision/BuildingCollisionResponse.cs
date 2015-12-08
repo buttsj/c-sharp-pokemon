@@ -42,6 +42,7 @@ namespace MonoGame
                 }
                 else if (playerBox.Location.X > middle && playerBox.Location.X < right && building.isDoor)
                 {
+                    game.prevPlayerPosition = game.level.player.position;
                     game.transition = true;
                     game.level = new Level(building.destination, game);
                     game.keyboard = new KeyboardController(game.level.player, game);

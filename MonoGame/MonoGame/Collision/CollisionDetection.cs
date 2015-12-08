@@ -11,11 +11,12 @@ namespace MonoGame
         Game1 game;
         ISpriteFactory factory = new SpriteFactory();
 
-        public TileCollisionResponse tileResponse;
-        public GrassCollisionResponse grassResponse;
-        public LedgeCollisionResponse ledgeResponse;
-        public BuildingCollisionResponse buildingResponse;
-        public EnemyCollisionResponse enemyResponse;
+        private TileCollisionResponse tileResponse;
+        private GrassCollisionResponse grassResponse;
+        private LedgeCollisionResponse ledgeResponse;
+        private BuildingCollisionResponse buildingResponse;
+        private EnemyCollisionResponse enemyResponse;
+        private ExitCollisionResponse exitResponse;
 
         public CollisionDetection(Player player, Game1 game)
         {
@@ -25,9 +26,10 @@ namespace MonoGame
             ledgeResponse = new LedgeCollisionResponse(game);
             buildingResponse = new BuildingCollisionResponse(game);
             enemyResponse = new EnemyCollisionResponse(game);
+            exitResponse = new ExitCollisionResponse(game);
         }
 
-        public void Detect(Player player, List<Tile> levelTiles, List<Grass> levelGrass, List<Ledge> levelLedges, List<Building> levelBuildings, List<Enemy> levelEnemies)
+        public void Detect(Player player, List<Tile> levelTiles, List<Grass> levelGrass, List<Ledge> levelLedges, List<Building> levelBuildings, List<Enemy> levelEnemies, List<Exit> levelExits)
         {
             Rectangle playerBox = player.state.GetBoundingBox(player.position);
             foreach (Tile tile in levelTiles)
@@ -73,6 +75,14 @@ namespace MonoGame
                 if (enemyBox.Intersects(playerBox))
                 {
                     enemyResponse.PlayerEnemyCollide(player, enemy);
+                }
+            }
+            foreach (Exit exit in levelExits)
+            {
+                Rectangle exitBox = exit.sprite.GetBoundingBox(exit.position);
+                if (exitBox.Intersects(playerBox))
+                {
+                    exitResponse.PlayerTileCollide(player, exit);
                 }
             }
         }

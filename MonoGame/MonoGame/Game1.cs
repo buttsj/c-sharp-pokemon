@@ -20,6 +20,7 @@ namespace MonoGame
         public Level level;
         public Camera camera;
         public Color background;
+        public Vector2 prevPlayerPosition;
 
         private static Game1 sInstance = new Game1();
         public bool isPaused = false, isTitle = true, transition = false;

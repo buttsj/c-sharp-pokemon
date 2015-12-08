@@ -12,7 +12,6 @@ namespace MonoGame
 
         public IPlayerState state { get; set; }
         public Vector2 position;
-        public Vector2 oldPosition;
         
         public List<Monster> pocketMonsters = new List<Monster>();
         public int monsterCount = 0;
@@ -30,7 +29,6 @@ namespace MonoGame
             curState = availState.right;
             state = new RightIdleState(this);
             position = startingPosition;
-            oldPosition = startingPosition;
             monsterBuilder = new MonsterBuilder("Index/Index.csv");
             CreateAMonster();
         }

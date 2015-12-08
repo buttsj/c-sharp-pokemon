@@ -126,7 +126,7 @@ namespace MonoGame
                     exit.Update(gameTime);
                 }
             }
-            collision.Detect(player, levelTiles, levelGrass, levelLedges, levelBuildings, levelEnemies);
+            collision.Detect(player, levelTiles, levelGrass, levelLedges, levelBuildings, levelEnemies, levelExits);
             player.Update(gameTime);
         }
     }

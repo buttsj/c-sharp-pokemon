@@ -166,6 +166,8 @@ namespace MonoGame
                     if (exitDictionary.ContainsKey(words[i]))
                     {
                         Exit exit = new Exit(factory.builder(exitDictionary[words[i]]), new Vector2(xCoord, yCoord));
+                        exit.destination = destinations[currDest];
+                        currDest++;
                         level.levelExits.Add(exit);
                     }
                     if (enemyDictionary.ContainsKey(words[i]))
