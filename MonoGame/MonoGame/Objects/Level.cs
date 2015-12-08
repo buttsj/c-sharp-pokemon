@@ -18,6 +18,7 @@ namespace MonoGame
         public List<Building> levelBuildings = new List<Building>();
         public List<Enemy> levelEnemies = new List<Enemy>();
         public List<Tile> levelBackground = new List<Tile>();
+        public List<Exit> levelExits = new List<Exit>();
 
         public Level(string fileName, Game1 game)
         {
@@ -71,6 +72,13 @@ namespace MonoGame
                     enemy.Draw(spriteBatch);
                 }
             }
+            foreach (Exit exit in levelExits)
+            {
+                if (game.camera.IsInView(exit.sprite.GetBoundingBox(exit.position)))
+                {
+                    exit.Draw(spriteBatch);
+                }
+            }
             player.Draw(spriteBatch);
         }
 
@@ -109,6 +117,13 @@ namespace MonoGame
                 if (game.camera.IsInView(enemy.state.GetBoundingBox(enemy.position)))
                 {
                     enemy.Update(gameTime);
+                }
+            }
+            foreach (Exit exit in levelExits)
+            {
+                if (game.camera.IsInView(exit.sprite.GetBoundingBox(exit.position)))
+                {
+                    exit.Update(gameTime);
                 }
             }
             collision.Detect(player, levelTiles, levelGrass, levelLedges, levelBuildings, levelEnemies);

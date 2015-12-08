@@ -104,6 +104,7 @@
     <Compile Include="Object States\Tile States\LedgeTileState.cs" />
     <Compile Include="Object States\Tile States\GrassTileState.cs" />
     <Compile Include="Object States\Tile States\GenericTileState.cs" />
+    <Compile Include="Objects\Exit.cs" />
     <Compile Include="Objects\Building.cs" />
     <Compile Include="Objects\Ledge.cs" />
     <Compile Include="Objects\MonsterBuilder.cs" />

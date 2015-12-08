@@ -24,6 +24,7 @@ namespace MonoGame
         Dictionary<string, LedgeFactory.LedgeType> ledgeDictionary = new Dictionary<string, LedgeFactory.LedgeType>();
         Dictionary<string, BuildingFactory.BuildingType> buildingDictionary = new Dictionary<string, BuildingFactory.BuildingType>();
         Dictionary<string, EnemyFactory.EnemyType> enemyDictionary = new Dictionary<string, EnemyFactory.EnemyType>();
+        Dictionary<string, SpriteFactory.sprites> exitDictionary = new Dictionary<string, SpriteFactory.sprites>();
 
         public LevelBuilder(Level currentLevel)
         {
@@ -48,9 +49,6 @@ namespace MonoGame
             tileDictionary.Add("2", TileFactory.TileType.pokeVerticalLeft);
             tileDictionary.Add("7", TileFactory.TileType.pokeVerticalRight);
 
-            // exit tile
-            tileDictionary.Add("B", TileFactory.TileType.exit);
-
             // grass
             grassDictionary.Add("G", GrassFactory.GrassType.shortGrass);
 
@@ -66,6 +64,9 @@ namespace MonoGame
             // npcs
             enemyDictionary.Add("E", EnemyFactory.EnemyType.rival);
             enemyDictionary.Add("Q", EnemyFactory.EnemyType.girl);
+
+            // exits
+            exitDictionary.Add("B", SpriteFactory.sprites.exit);
         }
 
         public Player Build(string fileName)
@@ -162,9 +163,14 @@ namespace MonoGame
                         }
                         level.levelBuildings.Add(building);
                     }
+                    if (exitDictionary.ContainsKey(words[i]))
+                    {
+                        Exit exit = new Exit(factory.builder(exitDictionary[words[i]]), new Vector2(xCoord, yCoord));
+                        level.levelExits.Add(exit);
+                    }
                     if (enemyDictionary.ContainsKey(words[i]))
                     {
-                        Enemy enemy = enemyFactory.builder(enemyDictionary[words[i]], new Vector2(xCoord, yCoord));
+                        Enemy enemy = enemyFactory.builder(enemyDictionary[words[i]], new Vector2(xCoord, yCoord), reference);
                         level.levelEnemies.Add(enemy);
                     }
                     xCoord += spacingIncrement;
