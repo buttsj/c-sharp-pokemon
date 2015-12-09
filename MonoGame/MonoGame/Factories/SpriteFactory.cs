@@ -10,10 +10,10 @@ namespace MonoGame
             leftIdlePlayer, leftWalkingPlayer, rightIdlePlayer, rightWalkingPlayer, upIdlePlayer, upWalkingPlayer, downIdlePlayer, downWalkingPlayer,
 
             // tiles
-            treeTile,
+            treeTile, sign,
 
             // gui
-            arrow,
+            arrow, instructions,
 
             // encounters
             grass,
@@ -26,12 +26,13 @@ namespace MonoGame
 
             // poke center stuff
             pokeEndCornerLeft, pokeEndCornerRight, pokeEndCounterLeft, pokeEndCounterRight, pokeHorizontal, pokeMiddleSection, pokeVerticalLeft, pokeVerticalRight,
+            pokeBookShelf, pokeChairs, pokeComputer, pokeStairsDown, pokeTree,
 
             // exit
             exit,
 
             // backgrounds
-            grassBack, pokeFloorSpot, pokePlainFloor
+            grassBack, pokeFloorSpot, pokePlainFloor, pokeFloorPrint
         }
 
         public SpriteFactory()
@@ -189,6 +190,46 @@ namespace MonoGame
             {
                 Texture2D back = Game1.gameContent.Load<Texture2D>("Backgrounds/pokePlainFloor");
                 return new StaticSprite(back);
+            }
+            if (sprite == sprites.pokeBookShelf)
+            {
+                Texture2D poke = Game1.gameContent.Load<Texture2D>("TileSprites/PokeCenter/pokeBookShelf");
+                return new StaticSprite(poke);
+            }
+            if (sprite == sprites.pokeChairs)
+            {
+                Texture2D poke = Game1.gameContent.Load<Texture2D>("TileSprites/PokeCenter/pokeChairs");
+                return new StaticSprite(poke);
+            }
+            if (sprite == sprites.pokeComputer)
+            {
+                Texture2D poke = Game1.gameContent.Load<Texture2D>("TileSprites/PokeCenter/pokeComputer");
+                return new StaticSprite(poke);
+            }
+            if (sprite == sprites.pokeFloorPrint)
+            {
+                Texture2D poke = Game1.gameContent.Load<Texture2D>("TileSprites/PokeCenter/pokeFloorPrint");
+                return new StaticSprite(poke);
+            }
+            if (sprite == sprites.pokeStairsDown)
+            {
+                Texture2D poke = Game1.gameContent.Load<Texture2D>("TileSprites/PokeCenter/pokeStairsDown");
+                return new StaticSprite(poke);
+            }
+            if (sprite == sprites.pokeTree)
+            {
+                Texture2D poke = Game1.gameContent.Load<Texture2D>("TileSprites/PokeCenter/pokeTree");
+                return new StaticSprite(poke);
+            }
+            if (sprite == sprites.sign)
+            {
+                Texture2D sign = Game1.gameContent.Load<Texture2D>("TileSprites/sign");
+                return new StaticSprite(sign);
+            }
+            if (sprite == sprites.instructions)
+            {
+                Texture2D sign = Game1.gameContent.Load<Texture2D>("GUI Sprites/infoWindow");
+                return new StaticSprite(sign);
             }
             return null;
         }

@@ -8,19 +8,20 @@ namespace MonoGame
         public enum TileType
         {
             // tiles
-            treeTile,
+            treeTile, sign,
 
             // ledges
             ledgeLeftCurve, ledgeRightCurve, ledgeLeftEnd, ledgeRightEnd, ledgeMiddle,
 
             // poke center stuff
             pokeEndCornerLeft, pokeEndCornerRight, pokeEndCounterLeft, pokeEndCounterRight, pokeHorizontal, pokeMiddleSection, pokeVerticalLeft, pokeVerticalRight,
+            pokeBookShelf, pokeChairs, pokeComputer, pokeStairsDown, pokeTree,
 
             // exit
             exit,
 
             // background
-            grass, pokeFloorSpot, pokePlainFloor
+            grass, pokeFloorSpot, pokePlainFloor, pokeFloorPrint
         }
 
         SpriteFactory factory;
@@ -104,6 +105,34 @@ namespace MonoGame
             if (type == TileType.pokePlainFloor)
             {
                 state = new GenericTileState(SpriteFactory.sprites.pokePlainFloor);
+            }
+            if (type == TileType.pokeBookShelf)
+            {
+                state = new GenericTileState(SpriteFactory.sprites.pokeBookShelf);
+            }
+            if (type == TileType.pokeChairs)
+            {
+                state = new GenericTileState(SpriteFactory.sprites.pokeChairs);
+            }
+            if (type == TileType.pokeComputer)
+            {
+                state = new GenericTileState(SpriteFactory.sprites.pokeComputer);
+            }
+            if (type == TileType.pokeFloorPrint)
+            {
+                state = new GenericTileState(SpriteFactory.sprites.pokeFloorPrint);
+            }
+            if (type == TileType.pokeStairsDown)
+            {
+                state = new GenericTileState(SpriteFactory.sprites.pokeStairsDown);
+            }
+            if (type == TileType.pokeTree)
+            {
+                state = new GenericTileState(SpriteFactory.sprites.pokeTree);
+            }
+            if (type == TileType.sign)
+            {
+                state = new GenericTileState(SpriteFactory.sprites.sign);
             }
             Tile product = new Tile(state, location);
             return product;

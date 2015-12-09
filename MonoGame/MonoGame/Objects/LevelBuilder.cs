@@ -49,6 +49,14 @@ namespace MonoGame
             tileDictionary.Add("2", TileFactory.TileType.pokeVerticalLeft);
             tileDictionary.Add("7", TileFactory.TileType.pokeVerticalRight);
 
+            tileDictionary.Add("0", TileFactory.TileType.pokeFloorSpot);
+            tileDictionary.Add("t", TileFactory.TileType.pokeTree);
+            tileDictionary.Add("y", TileFactory.TileType.pokeBookShelf);
+            tileDictionary.Add("u", TileFactory.TileType.pokeComputer);
+            tileDictionary.Add("i", TileFactory.TileType.pokeStairsDown);
+            tileDictionary.Add("o", TileFactory.TileType.pokeChairs);
+            tileDictionary.Add("q", TileFactory.TileType.pokeFloorPrint);
+
             // grass
             grassDictionary.Add("G", GrassFactory.GrassType.shortGrass);
 
@@ -67,6 +75,9 @@ namespace MonoGame
 
             // exits
             exitDictionary.Add("B", SpriteFactory.sprites.exit);
+
+            // random
+            tileDictionary.Add("p", TileFactory.TileType.sign);
         }
 
         public Player Build(string fileName)
@@ -94,9 +105,8 @@ namespace MonoGame
             {
                 tileNumber = Int32.Parse(initialWords[0]);
             }
-            catch (FormatException e)
+            catch
             {
-                Debug.WriteLine(e);
             }
             for (int i = 0; i < initialWords.Length; i++)
             {
@@ -139,6 +149,20 @@ namespace MonoGame
                     if (tileDictionary.ContainsKey(words[i]))
                     {
                         Tile tile = tileFactory.builder(tileDictionary[words[i]], new Vector2(xCoord, yCoord));
+                        if (words[i] == "0" || words[i] == "q")
+                        {
+                            tile.collision = false;
+                        }
+                        if (words[i] == "q")
+                        {
+                            tile.position.X += 8f;
+                            tile.position.Y += 4f;
+                        }
+                        if (words[i] == "p")
+                        {
+                            tile.sign = true;
+                            tile.signTex = factory.builder(SpriteFactory.sprites.instructions);
+                        }
                         level.levelTiles.Add(tile);
                     }
                     if (grassDictionary.ContainsKey(words[i]))

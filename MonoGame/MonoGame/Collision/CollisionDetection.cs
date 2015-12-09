@@ -35,9 +35,17 @@ namespace MonoGame
             foreach (Tile tile in levelTiles)
             {
                 Rectangle tileBox = tile.GetBoundingBox();
-                if (tileBox.Intersects(playerBox))
+                if (tileBox.Intersects(playerBox) && tile.collision)
                 {
                     tileResponse.PlayerTileCollide(player, tile);
+                    if (tile.sign)
+                    {
+                        game.level.DisplayInfo(tile.signTex);
+                    }
+                }
+                else if (!tileBox.Intersects(playerBox) && tile.sign)
+                {
+                    game.level.displaySign = false;
                 }
             }
             foreach (Grass grass in levelGrass)

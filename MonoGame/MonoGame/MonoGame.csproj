@@ -208,6 +208,9 @@
     <Content Include="Content\GUI Sprites\encounterWindow.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\GUI Sprites\infoWindow.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\GUI Sprites\menuBorder.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -271,6 +274,15 @@
     <Content Include="Content\TileSprites\PokeCenter\exitTexture.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\TileSprites\PokeCenter\pokeBookShelf.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\TileSprites\PokeCenter\pokeChairs.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\TileSprites\PokeCenter\pokeComputer.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\TileSprites\PokeCenter\pokeEndCornerLeft.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -283,16 +295,28 @@
     <Content Include="Content\TileSprites\PokeCenter\pokeEndCounterRight.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\TileSprites\PokeCenter\pokeFloorPrint.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\TileSprites\PokeCenter\pokeHorizontal.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\TileSprites\PokeCenter\pokeMiddleSection.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\TileSprites\PokeCenter\pokeStairsDown.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\TileSprites\PokeCenter\pokeTree.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\TileSprites\PokeCenter\pokeVerticalLeft.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\TileSprites\PokeCenter\pokeVerticalRight.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\TileSprites\sign.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\TileSprites\treeTileSprite.png">

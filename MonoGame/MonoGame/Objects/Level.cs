@@ -20,6 +20,9 @@ namespace MonoGame
         public List<Tile> levelBackground = new List<Tile>();
         public List<Exit> levelExits = new List<Exit>();
 
+        IAnimatedSprite signTexture;
+        public bool displaySign = false;
+
         public Level(string fileName, Game1 game)
         {
             this.game = game;
@@ -28,6 +31,12 @@ namespace MonoGame
             collision = new CollisionDetection(player, game);
         }
         
+        public void DisplayInfo(IAnimatedSprite sprite)
+        {
+            signTexture = sprite;
+            displaySign = true;
+        }
+
         public void Draw(SpriteBatch spriteBatch)
         {
             foreach (Tile tile in levelBackground)
@@ -80,6 +89,10 @@ namespace MonoGame
                 }
             }
             player.Draw(spriteBatch);
+            if (displaySign)
+            {
+                signTexture.Draw(spriteBatch, new Vector2(player.position.X - 100f, player.position.Y), Color.White);
+            }
         }
 
         public void Update(GameTime gameTime)

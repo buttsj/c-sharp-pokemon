@@ -8,6 +8,10 @@ namespace MonoGame
         public float xpos = 0, ypos = 0;
         public ITileState state;
         public Vector2 position = new Vector2(0, 0);
+        public bool collision = true;
+
+        public bool sign = false;
+        public IAnimatedSprite signTex;
         
         public Tile(ITileState state, Vector2 position)
         {
