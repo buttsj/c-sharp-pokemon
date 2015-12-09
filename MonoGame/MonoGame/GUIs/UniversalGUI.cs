@@ -19,6 +19,10 @@ namespace MonoGame
         public List<KeyValuePair<Texture2D, Rectangle>> graphicHolder { get; set; }
         public List<KeyValuePair<ICommands, string>> columnOne { get; set; }
         public List<KeyValuePair<ICommands, string>> columnTwo { get; set; }
+
+        // default lists for hitting ESC key
+        public List<KeyValuePair<ICommands, string>> defaultOne { get; set; }
+        public List<KeyValuePair<ICommands, string>> defaultTwo { get; set; }
         public ICommands currentCommand { get; set; }
         int selection = 0, menuNumber = 0;
 
@@ -33,6 +37,8 @@ namespace MonoGame
             this.game = game;
             columnOne = new List<KeyValuePair<ICommands, string>>();
             columnTwo = new List<KeyValuePair<ICommands, string>>();
+            defaultOne = new List<KeyValuePair<ICommands, string>>();
+            defaultTwo = new List<KeyValuePair<ICommands, string>>();
             graphicHolder = new List<KeyValuePair<Texture2D, Rectangle>>();
             font = Game1.gameContent.Load<SpriteFont>("Fonts/guiFont");
             factory = new SpriteFactory();
@@ -118,6 +124,22 @@ namespace MonoGame
                 selection = 0;
                 currentCommand = columnOne[selection].Key;
             }
+        }
+
+        public void GoBack()
+        {
+            columnOne.Clear();
+            columnTwo.Clear();
+            foreach (KeyValuePair<ICommands, string> kvp in defaultOne)
+            {
+                columnOne.Add(kvp);
+            }
+            foreach (KeyValuePair<ICommands, string> kvp in defaultTwo)
+            {
+                columnTwo.Add(kvp);
+            }
+            selection = 0;
+            currentCommand = columnOne[selection].Key;
         }
 
         public void Update(GameTime gameTime)

@@ -47,10 +47,12 @@
     <Compile Include="Collision\TileCollisionResponse.cs" />
     <Compile Include="Collision\CollisionDetection.cs" />
     <Compile Include="Commands\Encounter Function Commands\FightMenuCommand.cs" />
+    <Compile Include="Commands\Encounter Function Commands\UseMoveCommand.cs" />
     <Compile Include="Commands\Encounter Function Commands\RunAwayCommand.cs" />
     <Compile Include="Commands\Menu Direction Commands\Encounter Menu\EncounterSelectCommand.cs" />
     <Compile Include="Commands\Menu Direction Commands\Encounter Menu\EncounterRightCommand.cs" />
     <Compile Include="Commands\Menu Direction Commands\Encounter Menu\EncounterLeftCommand.cs" />
+    <Compile Include="Commands\Menu Direction Commands\Encounter Menu\GoBackMenuCommand.cs" />
     <Compile Include="Commands\Menu Direction Commands\Encounter Menu\EncounterUpCommand.cs" />
     <Compile Include="Commands\Menu Direction Commands\Encounter Menu\EncounterDownCommand.cs" />
     <Compile Include="Commands\Menu Direction Commands\Pause Menu\MenuSelectCommand.cs" />
@@ -215,6 +217,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\GUI Sprites\monsterMenuBackground.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\MonsterSprites\jigglypuff.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\MonsterSprites\jigglypuffBack.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\PlayerSprites\DownIdlePlayer.png">

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework.Input;
 
 namespace MonoGame
@@ -20,6 +17,7 @@ namespace MonoGame
             commandLibrary.Add(Keys.Left, currentCommand = new EncounterLeftCommand(menu));
             commandLibrary.Add(Keys.Right, currentCommand = new EncounterRightCommand(menu));
             commandLibrary.Add(Keys.Enter, currentCommand = new EncounterSelectCommand(menu));
+            commandLibrary.Add(Keys.Escape, currentCommand = new GoBackMenuCommand(menu));
         }
 
         public void Update()

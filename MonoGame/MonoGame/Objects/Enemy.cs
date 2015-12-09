@@ -17,7 +17,7 @@ namespace MonoGame
         public int monsterCount = 0;
         public MonsterBuilder monsterBuilder;
 
-        public bool displayMonsters = false;
+        public bool displayMonsters = false; // show all monsters
         public bool talkedTo = false;
 
         public Textbox textBox;

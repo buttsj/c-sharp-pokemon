@@ -6,7 +6,7 @@ namespace MonoGame
     {
         Random rnd;
         Game1 game;
-        double veryCommon = 5.33, common = 4.53, semiRare = 3.60, rare = 1.78, veryRare = 0.67;
+        double veryCommon = 5.33;
 
         public GrassCollisionResponse(Game1 game)
         {

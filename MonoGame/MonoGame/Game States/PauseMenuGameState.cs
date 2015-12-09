@@ -22,6 +22,15 @@ namespace MonoGame
             menu.columnOne.Add(new KeyValuePair<ICommands, string>(new SaveMenuCommand(), "Save"));
             menu.columnOne.Add(new KeyValuePair<ICommands, string>(new OptionsMenuCommand(), "Options"));
             menu.columnOne.Add(new KeyValuePair<ICommands, string>(new ExitMenuCommand(game), "Exit"));
+
+            menu.defaultOne.Add(new KeyValuePair<ICommands, string>(new IndexMenuCommand(), "Monster Index"));
+            menu.defaultOne.Add(new KeyValuePair<ICommands, string>(new MonsterMenuCommand(game), "Monsters"));
+            menu.defaultOne.Add(new KeyValuePair<ICommands, string>(new BagMenuCommand(), "Bag"));
+            menu.defaultOne.Add(new KeyValuePair<ICommands, string>(new GearMenuCommand(), "Gear"));
+            menu.defaultOne.Add(new KeyValuePair<ICommands, string>(new CharacterMenuCommand(), "Character"));
+            menu.defaultOne.Add(new KeyValuePair<ICommands, string>(new SaveMenuCommand(), "Save"));
+            menu.defaultOne.Add(new KeyValuePair<ICommands, string>(new OptionsMenuCommand(), "Options"));
+            menu.defaultOne.Add(new KeyValuePair<ICommands, string>(new ExitMenuCommand(game), "Exit"));
             menu.currentCommand = menu.columnOne[0].Key;
 
             menu.Column1StartingPosition.X = game.level.player.position.X + 90;
