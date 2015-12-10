@@ -20,6 +20,7 @@ namespace MonoGame
             int rnd = RandomExtension.NextInt(rndNum, 0, 255);
             if (rnd < F)
             {
+                game.transition = true;
                 game.gameState = new PlayingGameState(game);
             }
             escapeCount++;

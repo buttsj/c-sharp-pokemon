@@ -29,15 +29,19 @@ namespace MonoGame
         public int currSpeed;
 
         public string name;
+        public string type;
 
-        public string[] moves;
+        public Move[] moves;
         
         public Texture2D sprite;
 
-        public Monster(string name, int hp, int atk, int def, int spAtk, int spDef, int speed, string location)
+        public MoveBuilder moveBuilder;
+
+        public Monster(string name, string type, int hp, int atk, int def, int spAtk, int spDef, int speed, string location)
         {
             level = 10;
             this.name = name;
+            this.type = type;
             this.hp = hp;
             this.atk = atk;
             this.def = def;
@@ -46,11 +50,12 @@ namespace MonoGame
             this.speed = speed;
             
             sprite = Game1.gameContent.Load<Texture2D>(location);
-            moves = new string[4];
-            moves[0] = "Tackle";
-            moves[1] = "Sleep";
-            moves[2] = "Hit";
-            moves[3] = "Wombo";
+            moveBuilder = new MoveBuilder("Index/Moves.csv");
+            moves = new Move[4];
+            moves[0] = moveBuilder.moveList["Sing"];
+            moves[1] = moveBuilder.moveList["Defense Curl"];
+            moves[2] = moveBuilder.moveList["Pound"];
+            moves[3] = moveBuilder.moveList["Double Slap"];
 
             CalculateMaxes();
         }
@@ -63,8 +68,7 @@ namespace MonoGame
             MaxSPATK = (((spAtk * 2) * level) / 100) + 5;
             MaxSPDEF = (((spDef * 2) * level) / 100) + 5;
             MaxSPEED = (((speed * 2) * level) / 100) + 5;
-
-            currHealth = MaxHP;
+            ResetStats();
         }
 
         public void ResetStats()

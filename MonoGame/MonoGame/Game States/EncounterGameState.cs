@@ -8,6 +8,9 @@ namespace MonoGame
     {
         Game1 game;
         public UniversalGUI menu;
+        public Damage dmg;
+
+        public Monster enemyMon;
 
         private bool faderStart = false;
         private bool fadeIn = true;
@@ -51,6 +54,10 @@ namespace MonoGame
             var colors = new Color[] { Color.White };
             faderTexture.SetData<Color>(colors);
             faderStart = true;
+
+            dmg = new Damage();
+            enemyMon = game.level.player.monsterBuilder.monsterList["Pikachu"];
+            //enemyMon = new Monster("Pikachu", "Electric", 25, 25, 25, 25, 25, 25, "MonsterSprites/jigglypuff");
         }
 
         public void Update(GameTime gameTime)
@@ -58,7 +65,11 @@ namespace MonoGame
             game.keyboard.Update();
             menu.Update(gameTime);
             game.camera.LookAt(menu.CameraPointer);
-            
+            if (enemyMon.currHealth <= 0)
+            {
+                game.transition = true;
+                game.gameState = new PlayingGameState(game);
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -66,10 +77,18 @@ namespace MonoGame
             if (!faderStart)
             {
                 menu.Draw(spriteBatch);
+
+                // player mon
                 spriteBatch.Draw(game.level.player.pocketMonsters[0].sprite, new Rectangle(345, 300, 43, 38), Color.White);
                 spriteBatch.DrawString(font, "Level: " + game.level.player.pocketMonsters[0].level.ToString(), new Vector2(390, 300), Color.Black);
                 spriteBatch.DrawString(font, game.level.player.pocketMonsters[0].name, new Vector2(390, 320), Color.Black);
                 spriteBatch.DrawString(font, game.level.player.pocketMonsters[0].currHealth.ToString() + "/" + game.level.player.pocketMonsters[0].MaxHP, new Vector2(350, 280), Color.Black);
+
+                // enemy mon
+                spriteBatch.Draw(enemyMon.sprite, new Rectangle(620, 200, 43, 38), Color.White);
+                spriteBatch.DrawString(font, "Level: " + enemyMon.level.ToString(), new Vector2(665, 200), Color.Black);
+                spriteBatch.DrawString(font, enemyMon.name, new Vector2(665, 120), Color.Black);
+                spriteBatch.DrawString(font, enemyMon.currHealth.ToString() + "/" + enemyMon.MaxHP, new Vector2(625, 170), Color.Black);
             }
             
             if (faderStart)

@@ -1,2 +1,2 @@
-Jigglypuff,115,45,20,45,25,20,MonsterSprites/jigglypuffBack
-Pikachu,10,9,8,7,6,5,PlayerSprites/LeftIdlePlayer
+Jigglypuff,Normal,115,45,20,45,25,20,MonsterSprites/jigglypuffBack
+Pikachu,Electric,35,55,40,50,50,90,MonsterSprites/jigglypuff

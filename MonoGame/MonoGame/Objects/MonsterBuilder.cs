@@ -1,5 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System;
 using System.IO;
 
@@ -25,7 +24,7 @@ namespace MonoGame
             while ((line = sr.ReadLine()) != null)
             {
                 string[] words = line.Split(',');
-                monsterList.Add(words[0], new Monster(words[0], Int32.Parse(words[1]), Int32.Parse(words[2]), Int32.Parse(words[3]), Int32.Parse(words[4]), Int32.Parse(words[5]), Int32.Parse(words[6]), words[7]));
+                monsterList.Add(words[0], new Monster(words[0], words[1], Int32.Parse(words[2]), Int32.Parse(words[3]), Int32.Parse(words[4]), Int32.Parse(words[5]), Int32.Parse(words[6]), Int32.Parse(words[7]), words[8]));
             }
         }
     }

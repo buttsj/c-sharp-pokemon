@@ -107,9 +107,12 @@
     <Compile Include="Object States\Tile States\LedgeTileState.cs" />
     <Compile Include="Object States\Tile States\GrassTileState.cs" />
     <Compile Include="Object States\Tile States\GenericTileState.cs" />
+    <Compile Include="Objects\MoveBuilder.cs" />
+    <Compile Include="Objects\Move.cs" />
     <Compile Include="Objects\Exit.cs" />
     <Compile Include="Objects\Building.cs" />
     <Compile Include="Objects\Ledge.cs" />
+    <Compile Include="Objects\Damage.cs" />
     <Compile Include="Objects\MonsterBuilder.cs" />
     <Compile Include="Objects\LevelBuilder.cs" />
     <Compile Include="Object States\Player States\DownWalkingState.cs" />
@@ -355,6 +358,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Index\Text.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Index\Moves.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
