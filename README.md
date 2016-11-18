@@ -1,4 +1,4 @@
 # CSharpMon
 A clone of Pokemon I'm developing in C# for fun.
 
-Check out my website for a download if you want to try it! (www.dreameater.net)
+A playable demo is available to download and install on Dropbox: https://www.dropbox.com/s/xo42xr5l2a99rqd/PokemonInC%23.zip?dl=0
